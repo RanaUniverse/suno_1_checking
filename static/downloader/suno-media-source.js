@@ -2,7 +2,8 @@
 (function (root) {
     "use strict";
 
-    var RIGHTS_URL = "https://yellow-salad.aibiei.com/rights";
+    // var RIGHTS_URL = "https://yellow-salad.aibiei.com/rights";
+    var RIGHTS_URL = "/api/RanaUniverse/rights";
     var AUDIO_BASE_URL = "https://d2lwuy8qc234o3.cloudfront.net/1/clip/";
     var CONTENT_TYPE = "clip";
     var AES_BLOCK_BYTES = 16;
