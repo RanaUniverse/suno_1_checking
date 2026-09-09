@@ -4,7 +4,7 @@ from flask import request, jsonify
 
 import requests
 
-from app.external_service import call_external_post_api_call
+from app.external_service import call_external_post_api_call, get_suno_proxy
 
 app = Flask(__name__)
 
@@ -14,6 +14,20 @@ def home():
     return render_template(
         template_name_or_list="index.html",
     )
+
+
+@app.get("/api/suno/proxy")
+def get_proxy():
+
+    target_url = request.args.get("url")
+
+    if not target_url:
+        return {"error": "Missing url"}, 400
+
+    result = get_suno_proxy(
+        song_url=target_url,
+    )
+    return result
 
 
 @app.post("/api/RanaUniverse/rights")
@@ -37,9 +51,7 @@ def get_rights():
     except requests.RequestException as e:
         print(f"External API error: {e}")
 
-        return jsonify({
-            "error": "External service unavailable"
-        }), 502
+        return jsonify({"error": "External service unavailable"}), 502
 
 
 if __name__ == "__main__":

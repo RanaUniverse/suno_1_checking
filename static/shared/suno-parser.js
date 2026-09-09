@@ -26,7 +26,8 @@
     var SHORT_RE = /suno\.com\/s\/([A-Za-z0-9_-]+)/i;
     var HOOK_RE = /suno\.com\/hook\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i;
 
-    var DEFAULT_PROXY = "https://sunoapi.aibiei.com/proxy?url=";
+    // var DEFAULT_PROXY = "https://sunoapi.aibiei.com/proxy?url=";
+    var DEFAULT_PROXY = "/api/suno/proxy?url=";
     var HOOK_API = "https://studio-api-prod.suno.com/api/video/hooks/";
 
     function extractId(raw) {
@@ -321,7 +322,9 @@
         var isHook = id.indexOf("h:") === 0;
         var isShort = id.startsWith("s:");
         var px = (proxy || DEFAULT_PROXY);
-        if (!/^https?:\/\//i.test(px)) throw new Error("Invalid proxy URL");
+        if (!/^https?:\/\//i.test(px) &&
+    !px.startsWith("/")
+) throw new Error("Invalid proxy URL");
 
         if (isHook) {
             var directHook = await fetchHookById(id.slice(2), px, signal);
@@ -439,7 +442,9 @@
     async function fetchAndParsePlaylist(id, proxy, signal) {
         var target = "https://suno.com/playlist/" + id;
         var px = (proxy || DEFAULT_PROXY);
-        if (!/^https?:\/\//i.test(px)) throw new Error("Invalid proxy URL");
+        if (!/^https?:\/\//i.test(px) &&
+    !px.startsWith("/")
+) throw new Error("Invalid proxy URL");
         var url = px + encodeURIComponent(target);
         var res = await fetch(url, { method: "GET", signal: signal });
         if (!res.ok) throw new Error("HTTP " + res.status);

@@ -7,3 +7,5 @@ later i will switch to pydantic-settigns if need
 
 RIGHTS_URL = "https://yellow-salad.aibiei.com/rights"
 BASE_URL = "https://usesuno.com"
+
+SUNO_PROXY_URL = "https://sunoapi.aibiei.com/proxy"

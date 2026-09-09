@@ -7,7 +7,7 @@ Here i will try to call the external service from my server
 import requests
 
 
-from app.config import RIGHTS_URL, BASE_URL
+from app.config import RIGHTS_URL, BASE_URL, SUNO_PROXY_URL
 
 
 def call_external_post_api_call(
@@ -52,10 +52,45 @@ def call_external_post_api_call(
         raise
 
 
+def get_suno_proxy(
+    song_url: str,
+    proxy_url: str = SUNO_PROXY_URL,
+) -> bytes:
+
+    params = {
+        "url": song_url,
+    }
+
+    headers = {
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.7",
+        "Origin": BASE_URL,
+        "Referer": f"{BASE_URL}/",
+        "User-Agent": (
+            "Mozilla/5.0 (X11; Linux x86_64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/151.0.0.0 Safari/537.36"
+        ),
+    }
+
+    response = requests.get(
+        proxy_url,
+        params=params,
+        headers=headers,
+        timeout=10,
+    )
+
+    print(response.url)  # see the dynamically generated URL
+
+    response.raise_for_status()
+
+    return response.content
+
+
 if __name__ == "__main__":
 
     # This below is a song of external songs of suno
-    id_ = "b8d72ee1-0afa-4504-aa46-ec07a3bb61b0"
+    id_ = "520fac44-dee5-4b34-a7b2-b5d62348e718"
     call_external_post_api_call(
         content_id=id_,
     )
