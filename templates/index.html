@@ -15,7 +15,7 @@
     content="Free Songs Download here with different formats | Developed By Rana Universe" />
   <meta property="og:url" content="https://github.com/RanaUniverse" />
   <meta property="og:type" content="website" />
-  <!-- <meta property="og:image" content="https://te.legra.ph/file/3c16dd8bf8ad826b19547.png"> -->
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/142967497?v=4">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Rana Universe 🍌🍌🍌" />
@@ -36,6 +36,11 @@
   <link rel="stylesheet" href="/static/shared.css">
   <link rel="stylesheet" href="/static/downloader/suno-audio-controls.css" />
   <link rel="stylesheet" href="/static//shared/download-notices.css" />
+
+  <script src="/static/theme-init.js"></script>
+  <script src="/static/shared/refresh-top-on-reload.js"></script>
+  <link rel="stylesheet" href="/static/theme.css">
+
 
   <style>
     /* === Downloader — warm / action-oriented === */
@@ -2166,16 +2171,8 @@
     }
   </style>
 
-  <script src="/static/theme-init.js"></script>
-  <script src="/static/shared/refresh-top-on-reload.js"></script>
-  <link rel="stylesheet" href="/static/theme.css">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content="Suno Downloader: save your next favorite">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://te.legra.ph/file/3c16dd8bf8ad826b19547.png">
-  <meta name="twitter:image:alt" content="Suno Downloader: save your next favorite">
+
+
 </head>
 
 <body class="dl-page">
@@ -2184,122 +2181,74 @@
     <div class="nav-container">
       <a href="/" class="logo"><img src="/static/favicon/ru.png" alt="MY logo" width="32" height="32"
           decoding="async" /><span>RanaUniverse</span></a>
-      <button type="button" class="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="/">Home</a>
-        <a href="/guide/">Guide</a><a href="/styles">Styles</a>
-        <a href="/articles/">Articles</a>
-        <div class="nav-tools">
-          <a href="/tools" class="nav-tools__trigger active">Tools</a>
-          <div class="nav-tools__menu">
-            <a href="/tools/builder/">Prompt Builder</a>
-            <a href="/tools/diff/">Lyrics text diff</a>
-            <a href="/tools/downloader/">Suno downloader</a>
-            <a href="/tools/parser/">Suno song inspector</a>
-            <a href="/tools/formatter/">Structure tag helper</a>
-            <a href="/tools/normalize/">Lyrics tag normalizer</a>
-            <a href="/tools/lyrics-timestamp/">Lyrics timestamp</a>
-            <a href="/tools/timing/">Duration estimator</a>
-            <a href="/tools/cleaner/">Style string cleaner</a>
-            <a href="/tools/exclude/">Exclude styles generator</a>
-            <a href="/tools/random/">Random style generator</a>
-            <a href="/tools/batch/">Batch link parser</a>
-            <a href="/tools/cover/">Cover art downloader</a>
-            <a href="/tools/playlist/">Suno playlist downloader</a>
-            <a href="/tools/profile-downloader/">Profile downloader and analyzer</a>
-          </div>
-        </div>
-        <a href="/features">Suno features</a>
-        <a href="/extension">Extension</a>
-      </div>
     </div>
   </nav>
 
   <main>
     <div class="container">
       <div class="dl-shell">
-        <p class="tools-back"><a href="/tools">← All tools</a></p>
 
-        <section class="dl-stage" id="dl-stage">
-          <span class="dl-kicker">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 3v12" />
-              <path d="M7 10l5 5 5-5" />
-              <path d="M5 21h14" />
-            </svg>
-            Download tool
-          </span>
-          <h1 id="dl-headline">Free Suno Song Downloader</h1>
-          <p class="sub">Download any public Suno song or Hook as MP3, WAV, original audio, MP4 video or cover art.
-            Decryption and optional conversion complete in your browser.</p>
-
-          <form class="dl-form" id="dl-form" autocomplete="off">
-            <div class="dl-input-wrap">
-              <textarea id="dl-input" name="url" placeholder="Paste a suno.com/song link…" spellcheck="false"
-                aria-label="Suno song URL" rows="3"></textarea>
-              <div class="dl-input-bar">
-                <button type="button" class="dl-paste-btn" id="dl-paste"
-                  aria-label="Paste a Suno link from the clipboard">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <rect x="6" y="5" width="12" height="16" rx="2" />
-                    <path d="M9 5V3h6v2M9 9h6" />
-                  </svg>
-                  <span id="dl-paste-label">Paste</span>
-                </button>
-                <button type="submit" class="dl-btn-primary" id="dl-submit" aria-label="Find download options">
-                  <span class="dl-submit-spinner" aria-hidden="true"></span>
-                  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14" />
-                    <path d="M13 6l6 6-6 6" />
-                  </svg>
-                  <span class="dl-submit-label-wide">Download options</span>
-                  <span class="dl-submit-label-compact">Download</span>
-                </button>
-              </div>
+        <form class="dl-form" id="dl-form" autocomplete="off">
+          <div class="dl-input-wrap">
+            <textarea id="dl-input" name="url" placeholder="Paste a suno.com/song link…" spellcheck="false"
+              aria-label="Suno song URL" rows="3"></textarea>
+            <div class="dl-input-bar">
+              <button type="button" class="dl-paste-btn" id="dl-paste"
+                aria-label="Paste a Suno link from the clipboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <rect x="6" y="5" width="12" height="16" rx="2" />
+                  <path d="M9 5V3h6v2M9 9h6" />
+                </svg>
+                <span id="dl-paste-label">Paste</span>
+              </button>
+              <button type="submit" class="dl-btn-primary" id="dl-submit" aria-label="Find download options">
+                <span class="dl-submit-spinner" aria-hidden="true"></span>
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14" />
+                  <path d="M13 6l6 6-6 6" />
+                </svg>
+                <span class="dl-submit-label-wide">Download options</span>
+                <span class="dl-submit-label-compact">Download</span>
+              </button>
             </div>
-          </form>
-          <div class="tool-example" aria-label="Example Suno song link"><span>Example:</span><a id="dl-example-link"
-              href="https://suno.com/s/kuuNnXWLBeiaN1wU" target="_blank"
-              rel="noopener">https://suno.com/s/kuuNnXWLBeiaN1wU</a><button type="button" id="dl-example-try">Try
-              it</button></div>
-          <p class="dl-form-hint" id="dl-status" role="status" aria-live="polite">Works with public Suno song and Hook
-            links.</p>
-          <aside class="dl-policy-notice" id="dl-policy-notice" aria-label="Suno policy update">
-            <span class="dl-policy-notice__copy">
-              <span class="dl-policy-notice__wide">Suno policy update · Current rules after September 3, 2026 · </span>
-              <span class="dl-policy-notice__compact">Suno policy update · </span>
-              <a href="/articles/suno-download-limits-september-3-2026/" target="_blank" rel="noopener">Read the update
-                <span aria-hidden="true">→</span></a>
-            </span>
-            <button type="button" class="dl-policy-notice__dismiss" id="dl-policy-notice-dismiss"
-              aria-label="Dismiss policy update">×</button>
-          </aside>
-          <p class="dl-cross-link-top" aria-label="More download tools">
-            <span>Need to save more than one song?</span>
-            <span class="dl-cross-link-top__links">
-              <a href="/tools/batch/">Batch downloader <span aria-hidden="true">→</span></a>
-              <a href="/tools/playlist/">Save a playlist <span aria-hidden="true">→</span></a>
-            </span>
-          </p>
+          </div>
+        </form>
+        <div class="tool-example" aria-label="Example Suno song link">
+          <span>Example:</span>
+          <a id="dl-example-link" href="https://suno.com/s/kuuNnXWLBeiaN1wU" target="_blank" rel="noopener">
+            https://suno.com/s/kuuNnXWLBeiaN1wU
+          </a>
+          <button type="button" id="dl-example-try">
+            Try It
+          </button>
+        </div>
+        <p class="dl-form-hint" id="dl-status" role="status" aria-live="polite">
+          Works with public Suno song and Hook links.
+        </p>
+        <p class="dl-cross-link-top" aria-label="More download tools">
+          <span>Need to save more than one song?</span>
+          <span class="dl-cross-link-top__links">
+            <a href="/tools/batch/">Batch downloader <span aria-hidden="true">→</span></a>
+            <a href="/tools/playlist/">Save a playlist <span aria-hidden="true">→</span></a>
+          </span>
+        </p>
         </section>
 
         <article class="song-hero dl-hidden" id="dl-hero" aria-live="polite">
           <div class="song-hero-actions">
-            <a class="song-hero-analyze" id="dl-analyze-song" href="/tools/parser/" aria-label="Analyze this song"><svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            <a class="song-hero-analyze" id="dl-analyze-song" href="/tools/parser/" aria-label="Analyze this song">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
                 <path d="M4 19V9" />
                 <path d="M10 19V5" />
                 <path d="M16 19v-7" />
                 <path d="M22 19H2" />
-              </svg>Analyze</a>
+              </svg>
+              Analyze
+            </a>
+
             <a class="song-hero-suno" id="dl-open-song" target="_blank" rel="noopener" aria-label="Open on Suno">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
@@ -2310,6 +2259,7 @@
               on Suno
             </a>
           </div>
+
           <div class="song-hero-top">
             <img class="song-hero-cover" id="dl-cover" alt="" loading="lazy" decoding="async"
               referrerpolicy="no-referrer" />
@@ -2335,7 +2285,7 @@
         </article>
 
         <section class="dl-section dl-hidden" id="dl-download-section">
-          <p class="dl-section-label">Download</p>
+          <p class="dl-section-label">Download Any of The Below</p>
           <div class="dl-rail" id="dl-rail">
             <button type="button" class="dl-chip" data-kind="audio">
               <span class="dl-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -2343,11 +2293,14 @@
                   <path d="M9 17V7l10-2v10" />
                   <circle cx="6" cy="17" r="3" />
                   <circle cx="16" cy="15" r="3" />
-                </svg></span>
+                </svg>
+              </span>
+
               <span class="dl-chip-body">
                 <span class="dl-chip-kind">Audio</span>
                 <span class="dl-chip-sub">Choose format</span>
               </span>
+
               <svg class="dl-chip-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 4v12" />
@@ -2378,53 +2331,7 @@
                   <path d="M12 16h.01" />
                 </svg></span>
             </button>
-            <button type="button" class="dl-chip" data-kind="cover">
-              <span class="dl-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="9" cy="9" r="2" />
-                  <path d="M21 15l-5-5L5 21" />
-                </svg></span>
-              <span class="dl-chip-body">
-                <span class="dl-chip-kind">Cover art</span>
-                <span class="dl-chip-sub">JPEG</span>
-              </span>
-              <svg class="dl-chip-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 4v12" />
-                <path d="M7 11l5 5 5-5" />
-                <path d="M5 20h14" />
-              </svg>
-            </button>
-            <button type="button" class="dl-chip" data-kind="lyrics">
-              <span class="dl-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                  <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
-                  <line x1="9" y1="13" x2="15" y2="13" />
-                  <line x1="9" y1="17" x2="13" y2="17" />
-                </svg></span>
-              <span class="dl-chip-body">
-                <span class="dl-chip-kind">Lyrics</span>
-                <span class="dl-chip-sub">TXT</span>
-              </span>
-              <svg class="dl-chip-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 4v12" />
-                <path d="M7 11l5 5 5-5" />
-                <path d="M5 20h14" />
-              </svg>
-            </button>
           </div>
-          <button type="button" class="dl-btn-all" id="dl-btn-all">
-            <span class="dl-btn-all-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 8v13H3V8" />
-                <path d="M1 3h22v5H1z" />
-                <path d="M10 12h4" />
-              </svg></span>
-            <span id="dl-btn-all-label">Download all (.zip)</span>
-          </button>
         </section>
 
         <section class="dl-section dl-hidden" id="dl-preview">
@@ -2448,287 +2355,22 @@
             </p>
           </div>
         </section>
-        <!-- Ads Test Start -->
-        <aside class="dl-ad dl-ad-primary" aria-label="Advertisement">
-          <span class="dl-ad-label">Advertisement</span>
-          <div id="dl-responsive-ad"></div>
-          <script>
-            (function () {
-              function getAdConfig() {
-                if (window.matchMedia("(max-width: 600px)").matches) {
-                  return {
-                    key: "dc26552ce4e03dd2af161d9fbccdce77",
-                    height: 50,
-                    width: 320
-                  };
-                }
-                return {
-                  key: "d71a86729de8bbf6748d42b575923d86",
-                  height: 90,
-                  width: 728
-                };
-              }
 
-              function loadAdsterra() {
-                if (window.__adsterraLoaded) return;
-                var adConfig = getAdConfig();
-                window.__adsterraLoaded = true;
 
-                window.atOptions = {
-                  key: adConfig.key,
-                  format: "iframe",
-                  height: adConfig.height,
-                  width: adConfig.width,
-                  params: {}
-                };
-
-                var adContainer = document.getElementById("dl-responsive-ad");
-                if (!adContainer) return;
-
-                var adScript = document.createElement("script");
-                adScript.src = "https://www.highrevenueformat.com/" + adConfig.key + "/invoke.js";
-                adScript.async = true;
-                adContainer.appendChild(adScript);
-              }
-
-              if (typeof window.__tcfapi === "function") {
-                window.__tcfapi("addEventListener", 2, function (tcData, success) {
-                  if (!success) return;
-                  if (tcData && tcData.gdprApplies === false) {
-                    loadAdsterra();
-                  }
-                });
-              } else {
-                loadAdsterra();
-              }
-            })();
-          </script>
-        </aside>
-        <!-- Ads Test End -->
         <section class="dl-help">
           <h2>What this tool is for</h2>
-          <p>
-            A quick way to keep a copy of public Suno songs or Hooks — audio, video and cover art — without signing in
-            to usesuno or installing anything. Files are delivered from Suno or its CDN to your browser, then saved
-            locally.
-          </p>
           <p class="dl-cross-link">
             Need to save more than one song? Use the <a href="/tools/batch/">batch downloader</a> for selected links, or
             try the <a href="/tools/playlist/">Suno playlist downloader &rarr;</a>
           </p>
-          <p class="dl-policy-link">
-            Need a current backup plan? Read the <a href="/articles/suno-download-limits-september-3-2026/"
-              target="_blank" rel="noopener">Suno download policy update</a> for Free, Pro, Premier and Studio limits,
-            older songs and the official download route.
-          </p>
-
-          <!-- DOWNLOADER_SUPPORTING_CONTENT_START -->
-          <div class="tool-content-expansion">
-            <h2>How to get a Suno song URL</h2>
-            <p>Open the public song on Suno, then copy its URL from the browser address bar or Suno's share control. A
-              supported link normally starts with <code>suno.com/song/…</code>, <code>suno.com/s/…</code> or
-              <code>suno.com/hook/…</code>. Paste the complete link above rather than a song title or creator name.
-            </p>
-
-            <h2>Which Suno download fits your task?</h2>
-            <p>The downloader reads one public Suno song or Hook link and shows only the files available for that item.
-              Choose one file or use <strong>Download all</strong> to build a ZIP in your browser.</p>
-            <div class="tool-content-grid">
-              <div>
-                <h3>MP3, WAV or original audio</h3>
-                <p>MP3 works in most players and includes available song information. Choose WAV when an editor needs
-                  uncompressed PCM, or choose original audio for the fastest path without transcoding. Decryption and
-                  optional conversion happen locally.</p>
-              </div>
-              <div>
-                <h3>MP4 video</h3>
-                <p>Choose MP4 when you need the published song video for offline viewing or an authorized video
-                  workflow. The option remains unavailable when Suno exposes audio but no video file for that song.</p>
-              </div>
-              <div>
-                <h3>JPEG cover art</h3>
-                <p>Choose the cover when you need the public artwork for an authorized library, project note or release
-                  workflow. Use the <a href="/tools/cover/">cover art tool</a> when you need a resized square copy.</p>
-              </div>
-              <div>
-                <h3>Lyrics or ZIP</h3>
-                <p>Save exposed lyrics as plain TXT, or collect the selected audio format, JPEG, TXT and MP4 in one ZIP.
-                  Files that are missing at the source are left out of the archive.</p>
-              </div>
-            </div>
-
-            <h2>Download a Suno song in three steps</h2>
-            <ol>
-              <li>Copy a public URL such as <code>suno.com/song/…</code>, <code>suno.com/s/…</code> or
-                <code>suno.com/hook/…</code> from the address bar or a Suno share control.
-              </li>
-              <li>Paste the link above and load the song. Check the title and cover before saving a file.</li>
-              <li>Choose MP3, WAV or original audio, MP4, cover art or lyrics. Use the ZIP button when you want the
-                available files together.</li>
-            </ol>
-
-            <h2>Downloading on desktop and mobile</h2>
-            <div class="tool-content-grid">
-              <div>
-                <h3>Desktop browser</h3>
-                <p>Select a format and let the browser save it to your normal Downloads folder. If a media file opens
-                  instead, use the page's download control or right-click it and choose <strong>Save As</strong>.</p>
-              </div>
-              <div>
-                <h3>Mobile browser</h3>
-                <p>Tap a format, then use the browser's download control or share menu when prompted. The file may
-                  appear in Downloads, Files or the browser's download manager, depending on the device and browser.</p>
-              </div>
-            </div>
-
-            <h2>Why a download may open in a new tab</h2>
-            <p>Browser rules and the response headers from the source server decide whether a file saves at once. If the
-              browser opens the audio, video or image in a new tab, use its download control or choose <strong>Save
-                As</strong> from the context menu. The file still comes from Suno or its CDN.</p>
-            <p>Large videos and ZIP files need more memory than a cover image or lyric text file. Keep the page open
-              until the save starts. If the ZIP fails, download the available files one at a time.</p>
-
-            <h2>If a Suno link does not load</h2>
-            <ul>
-              <li>Check that you pasted the full <code>suno.com</code> song, short-share or Hook URL, not a title,
-                profile or playlist URL.</li>
-              <li>Open the link in a private browser window. If the song is private, unpublished, deleted or unavailable
-                there, this tool cannot read it.</li>
-              <li>Reload the public Suno page and try the copied URL again. A temporary Suno, CDN or network error can
-                make an otherwise valid asset unavailable.</li>
-              <li>Use the <a href="/tools/playlist/">playlist downloader</a> for a playlist URL or the <a
-                  href="/tools/profile-downloader/">profile downloader</a> for a creator URL.</li>
-            </ul>
-
-            <h2>Official Suno downloads and this public-link tool</h2>
-            <p>Suno's own Download control is the authoritative route for songs in your Library or Workspace and for any
-              export tied to your account, plan or commercial rights. This independent tool reads a public song page and
-              presents media URLs that are available from that page; it does not sign in to Suno, check your plan, use
-              your official allowance or turn a public file into an approved commercial download.</p>
-            <p>Use Suno's official route whenever a license, client delivery or release depends on proof of an
-              authorized download. See the <a href="/articles/suno-download-limits-september-3-2026/">current Suno
-                download policy guide</a> before relying on a public-link copy.</p>
-
-            <h2>What you can download and how you can use it</h2>
-            <p>This page can retrieve available files from a public song or Hook: MP3, a locally created WAV or original
-              audio, MP4 video when published, JPEG cover art, exposed lyrics and a ZIP containing those available
-              files. Technical access does not grant permission. Download your own work, licensed work or content whose
-              creator has given you permission, and follow Suno's current terms for personal or commercial use.</p>
-
-            <h2>Current limits and unsupported formats</h2>
-            <p>The single-song tool does not download private, unpublished or deleted songs, and it does not accept
-              profile or playlist URLs. It does not provide stems, MIDI, project files or a video that Suno has not
-              published for the song. The WAV option creates a local 16-bit PCM file from the available source audio; it
-              is not an official Suno account WAV or master. Source availability and Suno's access rules can change, so
-              a format shown today is not guaranteed for every link or future visit.</p>
-          </div>
-          <!-- DOWNLOADER_SUPPORTING_CONTENT_END -->
-
-          <h2>Privacy</h2>
-          <p>
-            The public Suno URL is sent to the usesuno fetch service. The interface does not intentionally keep a lookup
-            history, and media is fetched from Suno or its CDN. See the <a href="/privacy">Privacy Policy</a>.
-          </p>
-
-          <h2>Respectful use</h2>
-          <p>
-            Please only download songs you have the rights to — your own tracks, work you are licensed to use, or
-            content whose creator has given permission. This tool does not bypass any access control.
-          </p>
-
-          <h2 id="dl-faq-h2">FAQ</h2>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>Is it free?</h3>
-              </summary>
-              <div class="faq-answer">Yes. No usesuno account or subscription is required. It works with public Suno
-                song and Hook links while the source and network are available. Suno's own access rules may change.
-              </div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>Where do the downloaded files come from?</h3>
-              </summary>
-              <div class="faq-answer">The files are based on the media available for the public Suno song or Hook you
-                submit and are saved by your browser.</div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>Why does a download sometimes open in a new tab instead of saving?</h3>
-              </summary>
-              <div class="faq-answer">Some browsers block the one-click save. When that happens, we open the file in a
-                new tab so you can save it manually (right-click → Save As).</div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>Can I download songs I do not own?</h3>
-              </summary>
-              <div class="faq-answer">Only download content you have rights to. Respect Suno's Terms of Service and each
-                creator's license.</div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>What should I paste into the box?</h3>
-              </summary>
-              <div class="faq-answer">A public Suno song or Hook link such as <code>suno.com/song/…</code>,
-                <code>suno.com/s/…</code> or <code>suno.com/hook/…</code>. You can copy it from the address bar or a
-                Suno share control.
-              </div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>Which Suno files can I download?</h3>
-              </summary>
-              <div class="faq-answer">You can save MP3, a locally created WAV, the faster original audio container,
-                available MP4 video, JPEG cover art, lyrics as TXT, or collect the selected files in a ZIP.</div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>Why is the MP4 option unavailable for some songs?</h3>
-              </summary>
-              <div class="faq-answer">Some Suno songs have audio but no published video file. You can still save MP3,
-                WAV or original audio, cover art and available lyrics.</div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>Does audio conversion happen on the server?</h3>
-              </summary>
-              <div class="faq-answer">No. The encrypted stream is decrypted locally. When MP3 or WAV is selected, the
-                browser decodes it to PCM and creates the chosen file locally.</div>
-            </details>
-          </div>
-          <div class="faq-item">
-            <details>
-              <summary>
-                <h3>What is included in Download all ZIP?</h3>
-              </summary>
-              <div class="faq-answer">The ZIP contains audio in the selected format, JPEG cover art, lyrics as TXT and
-                MP4 video when Suno published one.</div>
-            </details>
-          </div>
         </section>
       </div>
     </div>
-    <section class="container tool-help">
+    <!-- <section class="container tool-help">
       <h2>Add timestamps to your finished lyrics</h2>
       <p>Have the audio and the words ready? Use the <a href="/tools/lyrics-timestamp/">Lyrics Timestamp Tool</a> to
         sync lyrics to the song and export LRC for a music player or SRT and VTT for video subtitles.</p>
-    </section>
+    </section> -->
   </main>
 
   <div class="dl-toast" id="dl-toast" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -2759,27 +2401,51 @@
   </div>
 
   <div class="dl-modal dl-hidden" id="dl-audio-format-modal" role="presentation">
+
+
     <div class="dl-modal-card" role="dialog" aria-modal="true" aria-labelledby="dl-audio-format-title"
       aria-describedby="dl-audio-format-description" tabindex="-1">
-      <button type="button" class="dl-modal-close" id="dl-audio-format-close"
-        aria-label="Close audio format chooser">×</button>
+      <button type="button" class="dl-modal-close" id="dl-audio-format-close" aria-label="Close audio format chooser">
+        ×
+      </button>
+
       <p class="dl-modal-kicker">Save audio</p>
       <h2 id="dl-audio-format-title">Choose an audio format</h2>
-      <p id="dl-audio-format-description">MP3 and WAV are created on this device. Original audio skips conversion.</p>
-      <div class="dl-audio-format-options">
-        <button type="button" class="dl-audio-format-choice" data-audio-format-choice="mp3">
-          <strong>MP3</strong>
-          <span>Most compatible. Includes available title, creator, Style, cover art and lyrics.</span>
-        </button>
-        <button type="button" class="dl-audio-format-choice" data-audio-format-choice="wav">
-          <strong>WAV</strong>
-          <span>Uncompressed for editing. Faster than MP3, but the file is much larger.</span>
-        </button>
-        <button type="button" class="dl-audio-format-choice" data-audio-format-choice="original">
-          <strong>Original audio</strong>
-          <span>Fastest. Keeps the source format and its existing information unchanged.</span>
-        </button>
-      </div>
+
+<div class="dl-audio-format-options">
+
+  <button
+    type="button"
+    class="dl-audio-format-choice"
+    data-audio-format-choice="original"
+  >
+    <strong>⚡ Original Audio</strong>
+    <span>Fastest. Keeps the original audio format and quality unchanged.</span>
+  </button>
+
+  <button
+    type="button"
+    class="dl-audio-format-choice"
+    data-audio-format-choice="mp3"
+  >
+    <strong>🎵 MP3</strong>
+    <span>Most compatible. Includes available title, creator, style, cover art and lyrics.</span>
+  </button>
+
+  <button
+    type="button"
+    class="dl-audio-format-choice"
+    data-audio-format-choice="wav"
+  >
+    <strong>🎧 WAV</strong>
+    <span>Uncompressed for editing. Higher quality, but the file is much larger.</span>
+  </button>
+
+</div>
+
+
+
+
     </div>
   </div>
 
@@ -2827,7 +2493,7 @@
       <p id="dl-lyric-mv-description">Suno did not publish a video for this song. You can still turn its audio and timed
         lyrics into a lyric MV in your browser.</p>
       <div class="dl-modal-actions">
-        <a class="dl-btn-primary" id="dl-open-lyric-mv" href="https://mv.usesuno.com/" target="_blank"
+        <a class="dl-btn-primary" id="dl-open-lyric-mv" href="https://example.com/" target="_blank"
           rel="noopener noreferrer">Make a lyric MV <span aria-hidden="true">→</span></a>
         <button type="button" class="dl-btn-secondary" id="dl-stay-lyric-mv">Not now</button>
       </div>
@@ -2835,107 +2501,11 @@
   </div>
 
   <div class="dl-modal dl-hidden" id="dl-next-steps-modal" role="presentation" aria-hidden="true">
-    <div class="dl-modal-card" id="dl-next-steps-dialog" role="dialog" aria-modal="true"
-      aria-labelledby="dl-next-steps-title" aria-describedby="dl-next-steps-description" tabindex="-1">
-      <button type="button" class="dl-modal-close" id="dl-next-steps-close" aria-label="Close next steps">×</button>
-      <p class="dl-modal-kicker">Download complete</p>
-      <h2 id="dl-next-steps-title">What Would You Like to Do Next?</h2>
-      <p id="dl-next-steps-description">Keep working with this song, or turn it into a lyric MV.</p>
-      <div class="dl-next-steps-list" aria-label="Next steps">
-        <a class="dl-next-step" id="dl-next-analyze" href="/tools/parser/" data-next-step-action="analyze_song">
-          <strong>Analyze this song</strong>
-          <span>Open its metadata, structure and audio insights.</span>
-        </a>
-        <a class="dl-next-step" id="dl-next-creator" href="/tools/profile-downloader/"
-          data-next-step-action="analyze_creator">
-          <strong>Analyze this creator</strong>
-          <span>Explore this creator's public songs, style trends and patterns.</span>
-        </a>
-        <a class="dl-next-step dl-next-step--lyric-mv" id="dl-next-lyric-mv" href="https://mv.usesuno.com/"
-          target="_blank" rel="noopener noreferrer" data-next-step-action="make_lyric_mv">
-          <strong>Make a lyric MV</strong>
-          <span>Turn this song's audio and timed lyrics into an animated video.</span>
-        </a>
-      </div>
-      <button type="button" class="dl-next-steps-dismiss" id="dl-next-steps-dismiss">Not now</button>
-    </div>
   </div>
 
-  <footer class="site-footer">
-    <nav class="footer-nav" aria-label="Site map">
-      <div class="footer-nav__col">
-        <p class="footer-nav__title">Learn</p>
-        <ul class="footer-nav__list">
-          <li><a href="/guide/">Guide hub</a></li>
-          <li><a href="/guide/genre/">Genre hub</a></li>
-          <li><a href="/guide/vocals/">Vocal prompts</a></li>
-          <li><a href="/guide/tags/">Structure tags</a></li>
-          <li><a href="/features">Feature overview</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav__col">
-        <p class="footer-nav__title">Tools</p>
-        <ul class="footer-nav__list">
-          <li><a href="/tools">Tools hub</a></li>
-          <li><a href="/tools/builder/">Prompt Builder</a></li>
-          <li><a href="/tools/diff/">Lyrics text diff</a></li>
-          <li><a href="/tools/downloader/">Suno downloader</a></li>
-          <li><a href="/tools/playlist/">Playlist downloader</a></li>
-          <li><a href="/tools/parser/">Suno parser</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav__col">
-        <p class="footer-nav__title">Prompts</p>
-        <ul class="footer-nav__list">
-          <li><a href="/styles">Style library</a></li>
-          <li><a href="/extension">Suno Prompt Manager</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav__col">
-        <p class="footer-nav__title">Site</p>
-        <ul class="footer-nav__list">
-          <li><a href="/">Home</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-          <li><a href="/terms">Terms</a></li>
-        </ul>
-      </div>
-    </nav>
-    <details class="download-rights-footer">
-      <summary class="download-rights-footer__summary">
-        <span class="download-rights-footer__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 11v5" />
-            <path d="M12 8h.01" />
-          </svg></span>
-        <span class="download-rights-footer__label">Download rights</span>
-        <span class="download-rights-footer__hint">Hover or tap for details</span>
-        <span class="download-rights-footer__chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m8 10 4 4 4-4" />
-          </svg></span>
-      </summary>
-      <div class="download-rights-footer__panel">
-        <p>UseSuno is an independent third-party service and is not affiliated with, sponsored by, or endorsed by Suno,
-          Inc.</p>
-        <p>UseSuno does not request or require your Suno password, account credentials, cookies, or API keys. It lets
-          users select and export files from publicly accessible pages; audio processing and ZIP creation run locally in
-          the browser, and UseSuno does not store server-side copies of downloaded audio.</p>
-        <p>UseSuno does not grant copyright, ownership, licenses, or commercial-use rights to downloaded content. Users
-          are responsible for determining whether they have the necessary rights to access, save, reproduce, and use
-          content.</p>
-        <p>For commercial use of Suno-generated content, obtain the applicable rights and downloads directly through
-          Suno's official services and review Suno's current terms.</p>
-        <p>Nothing on this website should be interpreted as a representation that downloaded content is licensed for
-          commercial use.</p>
-      </div>
-    </details>
-    <p class="footer-note">&copy; 2026 usesuno.com. Unofficial resource. Not affiliated with Suno, Inc.</p>
-  </footer>
 
   <script src="/static/shared.js"></script>
   <script src="/static/download-notices.js"></script>
-  <!-- 必须同步加载：若内联脚本带 defer 且无 src，部分浏览器会先于 defer 外链执行，导致 SunoParser 未定义、loadMeta 空跑 -->
   <script src="/static/shared/suno-parser.js"></script>
   <script src="/static/downloader/suno-media-source.js"></script>
   <script src="/static/downloader/suno-audio-transcoder.js"></script>
@@ -3239,7 +2809,7 @@
         nextCreator.href = currentCreatorHandle
           ? "/tools/profile-downloader/?profile=" + encodeURIComponent(currentCreatorHandle) + "&view=insights"
           : "/tools/profile-downloader/";
-        nextLyricMv.href = "https://mv.usesuno.com/";
+        nextLyricMv.href = "https://example.com/";
         updateNextStepsLyricMvVisibility();
 
         nextStepsModal.classList.remove("dl-hidden");
@@ -3569,7 +3139,7 @@
         var ext = kind === "cover" ? ".jpeg" : kind === "lyrics" ? ".txt" : kind === "audio" ? "." + (audioExtension || "m4a") : "." + kind;
         var slug = slugify(currentTitle);
         var name = slug || id;
-        return name + " [usesuno.com]" + ext;
+        return name + " [RanaUniverse@upi]" + ext;
       }
 
       var INSTRUMENTAL_MARKER = "[Instrumental]";
@@ -4225,7 +3795,7 @@
           if (added === 0) throw new Error("nothing to download");
 
           var zipBlob = await zip.generateAsync({ type: "blob" });
-          saveBlob(zipBlob, (slugify(currentTitle) || currentId) + " [usesuno.com].zip");
+          saveBlob(zipBlob, (slugify(currentTitle) || currentId) + " [RanaUniverse@upi].zip");
           btnAll.classList.add("is-saved");
           btnAllLabel.textContent = "Saved";
           setStatus("Saved " + added + " file(s) as a zip.", "ok");

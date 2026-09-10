@@ -1,6 +1,3 @@
-/**
- * usesuno.com â€” mobile nav, theme, toast helper
- */
 (function () {
     var THEME_STORAGE_KEY = "usesuno-theme";
     var themeMedia = window.matchMedia
