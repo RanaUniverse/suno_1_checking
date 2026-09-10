@@ -38,7 +38,7 @@ def get_rights():
         content_id = data["content_params"]["content_id"]
         content_type = data["content_params"]["content_type"]
 
-    except TypeError, KeyError:
+    except (TypeError, KeyError):
         return jsonify({"error": "Invalid request body"}), 400
 
     try:
