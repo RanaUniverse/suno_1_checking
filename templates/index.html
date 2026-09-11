@@ -397,7 +397,10 @@ index.html
 
 
   <script src="/static/must_shared.js"></script>
+  {#
+  i maybe need to remove this file as well in future
   <script src="/static/download-notices.js"></script>
+  #}
   <script src="/static/shared/suno-parser.js"></script>
   <script src="/static/downloader/must_suno-audio-info.js"></script>
   <script src="/static/downloader/must_suno-audio-transcoder.js"></script>
@@ -619,9 +622,9 @@ index.html
       }
 
       function requestDownload(action) {
-        if (window.UseSunoDownloadNotices && typeof window.UseSunoDownloadNotices.run === "function") {
-          return window.UseSunoDownloadNotices.run(action);
-        }
+        // if (window.UseSunoDownloadNotices && typeof window.UseSunoDownloadNotices.run === "function") {
+        //   return window.UseSunoDownloadNotices.run(action);
+        // }
         return Promise.resolve().then(action);
       }
 
