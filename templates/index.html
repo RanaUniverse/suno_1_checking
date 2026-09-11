@@ -45,7 +45,7 @@ index.html
   <script src="/static/shared/refresh-top-on-reload.js"></script>
   <link rel="stylesheet" href="/static/theme.css">
   <link rel="stylesheet" href="/static/shared/downloader.css">
-
+  <link rel="stylesheet" href="/static/rana.css">
 
 
 </head>
@@ -105,6 +105,13 @@ index.html
             Try It
           </button>
         </div>
+
+        {% include 'rana.html' %}
+
+
+
+
+
         <p class="dl-form-hint" id="dl-status" role="status" aria-live="polite">
           Works with public Suno song and Hook links.
         </p>
@@ -112,7 +119,7 @@ index.html
           <span>Need to save more than one song?</span>
           <span class="dl-cross-link-top__links">
             <a href="/tools/batch/">Batch downloader <span aria-hidden="true">→</span></a>
-            <a href="/tools/playlist/">Save a playlist <span aria-hidden="true">→</span></a>
+            <a href="/playlist/">Save a playlist <span aria-hidden="true">→</span></a>
           </span>
         </p>
         </section>
@@ -265,7 +272,7 @@ index.html
           <h2>What this tool is for</h2>
           <p class="dl-cross-link">
             Need to save more than one song? Use the <a href="/tools/batch/">batch downloader</a> for selected links, or
-            try the <a href="/tools/playlist/">Suno playlist downloader &rarr;</a>
+            try the <a href="/playlist/">Suno playlist downloader &rarr;</a>
           </p>
         </section>
       </div>
@@ -316,7 +323,7 @@ index.html
       <p id="dl-playlist-modal-description">The single-song downloader handles one song at a time. Open the playlist
         downloader to load the songs and choose individual files or a ZIP.</p>
       <div class="dl-modal-actions">
-        <a class="dl-btn-primary" id="dl-open-playlist" href="/tools/playlist/">Open playlist downloader <span
+        <a class="dl-btn-primary" id="dl-open-playlist" href="/playlist/">Open playlist downloader <span
             aria-hidden="true">→</span></a>
         <button type="button" class="dl-btn-secondary" id="dl-stay-song">Stay on song downloader</button>
       </div>
@@ -882,7 +889,7 @@ index.html
       function openPlaylistModal(info) {
         if (!playlistModal || !openPlaylistBtn) return;
         lastPlaylistModalFocus = document.activeElement;
-        openPlaylistBtn.href = "/tools/playlist/?url=" + encodeURIComponent(info.url);
+        openPlaylistBtn.href = "/playlist/?url=" + encodeURIComponent(info.url);
         playlistModal.classList.remove("dl-hidden");
         document.body.classList.add("dl-modal-open");
         if (playlistModalClose) playlistModalClose.focus();
