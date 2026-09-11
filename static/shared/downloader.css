@@ -1576,12 +1576,12 @@ html[data-theme="light"] .dl-ad {
     text-decoration: none;
 }
 
-.dl-audio-format-options {
+/* .dl-audio-format-options {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
     margin-top: 22px;
-}
+} */
 
 .dl-audio-format-choice {
     display: flex;
@@ -1906,7 +1906,7 @@ body.dl-modal-open {
         height: 34px;
     }
 
-    #dl-audio-format-modal .dl-audio-format-options {
+    #dl-audio-format-modal {
         gap: 8px;
         margin-top: 14px;
     }
@@ -1948,7 +1948,7 @@ body.dl-modal-open {
         line-height: 1.32;
     }
 
-    #dl-audio-format-modal .dl-audio-format-options {
+    #dl-audio-format-modal {
         gap: 6px;
         margin-top: 10px;
     }
