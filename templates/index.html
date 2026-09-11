@@ -78,14 +78,20 @@ index.html
                 <span id="dl-paste-label">Paste</span>
               </button>
               <button type="submit" class="dl-btn-primary" id="dl-submit" aria-label="Find download options">
-                <span class="dl-submit-spinner" aria-hidden="true"></span>
+                <span class="dl-submit-spinner" aria-hidden="true">
+                </span>
+
+
                 <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12h14" />
-                  <path d="M13 6l6 6-6 6" />
+                  <path d="M12 4v12" />
+                  <path d="M7 11l5 5 5-5" />
+                  <path d="M5 20h14" />
                 </svg>
-                <span class="dl-submit-label-wide">Download options</span>
-                <span class="dl-submit-label-compact">Download</span>
+
+                <span class="dl-submit-label-wide">Download Song</span>
+                <span class="dl-submit-label-compact">Download Song</span>
+
               </button>
             </div>
           </div>
@@ -1699,8 +1705,8 @@ index.html
         input.disabled = lookupInProgress;
         if (pasteBtn) pasteBtn.disabled = lookupInProgress;
         if (exampleTry) exampleTry.disabled = lookupInProgress;
-        var label = lookupInProgress ? "Loading…" : "Download options";
-        var compactLabel = lookupInProgress ? "Loading…" : "Download";
+        var label = lookupInProgress ? "Loading…" : "Download Song Again";
+        var compactLabel = lookupInProgress ? "Loading…" : "Download Song Again";
         var wideLabelEl = submitBtn.querySelector(".dl-submit-label-wide");
         var compactLabelEl = submitBtn.querySelector(".dl-submit-label-compact");
         if (wideLabelEl) wideLabelEl.textContent = label;

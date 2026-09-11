@@ -130,7 +130,7 @@
 }
 
 .dl-paste-btn {
-    display: none;
+    display: inline;
     align-items: center;
     justify-content: center;
     gap: 7px;
