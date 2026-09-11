@@ -166,29 +166,51 @@ index.html
         </article>
 
         <section class="dl-section dl-hidden" id="dl-download-section">
-          <p class="dl-section-label">Download Any of The Below</p>
+          <p class="dl-section-label">Download This Song Below</p>
+
           <div class="dl-rail" id="dl-rail">
-            <button type="button" class="dl-chip" data-kind="audio">
-              <span class="dl-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M9 17V7l10-2v10" />
-                  <circle cx="6" cy="17" r="3" />
-                  <circle cx="16" cy="15" r="3" />
-                </svg>
-              </span>
 
-              <span class="dl-chip-body">
-                <span class="dl-chip-kind">Audio</span>
-                <span class="dl-chip-sub">Choose format</span>
-              </span>
+            <div class="dl-audio-options">
 
-              <svg class="dl-chip-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 4v12" />
-                <path d="M7 11l5 5 5-5" />
-                <path d="M5 20h14" />
-              </svg>
-            </button>
+              <button type="button" class="dl-chip dl-audio-format-choice " data-kind="audio"
+                data-audio-format="original" title="Download original audio">
+                <strong>⚡ Original Audio</strong>
+                <span>
+                  Fastest. Keeps the original audio format and quality unchanged.
+                </span>
+                <span class="dl-chip-sub">
+                  Original
+                </span>
+              </button>
+
+
+              <button type="button" class="dl-chip dl-audio-format-choice" data-kind="audio" data-audio-format="mp3"
+                title="Download MP3 audio">
+                <strong>🎵 MP3</strong>
+                <span>
+                  Most compatible. Includes available title, creator, style, cover art and lyrics.
+                </span>
+                <span class="dl-chip-sub">
+                  MP3
+                </span>
+              </button>
+
+
+              <button type="button" class="dl-chip dl-audio-format-choice" data-kind="audio" data-audio-format="wav"
+                title="Download WAV audio">
+                <strong>🎧 WAV</strong>
+                <span>
+                  Uncompressed for editing. Higher quality, but the file is much larger.
+                </span>
+                <span class="dl-chip-sub">
+                  WAV
+                </span>
+              </button>
+
+
+            </div>
+
+
             <button type="button" class="dl-chip" data-kind="mp4" id="dl-chip-mp4" title="Download MP4 video">
               <span class="dl-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -212,6 +234,7 @@ index.html
                   <path d="M12 16h.01" />
                 </svg></span>
             </button>
+
           </div>
         </section>
 
@@ -455,6 +478,7 @@ index.html
       var processingCancel = document.getElementById("dl-processing-cancel");
       var dlSection = document.getElementById("dl-download-section");
       var rail = document.getElementById("dl-rail");
+      var audioFormatButtons = document.querySelectorAll("[data-audio-format]");
 
       var ICONS = {
         clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
@@ -1164,11 +1188,35 @@ index.html
           if (kind === "lyrics") {
             c.title = "Download lyrics";
           }
-          if (kind === "audio") {
+
+
+          // if (kind === "audio") {
+          //   c.title = "Choose MP3, WAV or original audio";
+          // }
+          // var sub = c.querySelector(".dl-chip-sub");
+          // sub.textContent = kind === "audio" ? selectedAudioLabel() : kind === "mp4" ? "MP4" : kind === "lyrics" ? "TXT" : "JPEG";
+
+          if (kind === "audio" && !c.hasAttribute("data-audio-format")) {
             c.title = "Choose MP3, WAV or original audio";
           }
+
           var sub = c.querySelector(".dl-chip-sub");
-          sub.textContent = kind === "audio" ? selectedAudioLabel() : kind === "mp4" ? "MP4" : kind === "lyrics" ? "TXT" : "JPEG";
+
+          if (sub) {
+            if (kind === "audio" && !c.hasAttribute("data-audio-format")) {
+              sub.textContent = selectedAudioLabel();
+            } else if (kind === "mp4") {
+              sub.textContent = "MP4";
+            } else if (kind === "lyrics") {
+              sub.textContent = "TXT";
+            } else if (kind !== "audio") {
+              sub.textContent = "JPEG";
+            }
+          }
+
+
+
+
         });
       }
 
@@ -1989,10 +2037,29 @@ index.html
           setStatus(chip.title || "This option is not available for this song.", "err");
           return;
         }
+
+
+        // if (chip.getAttribute("data-kind") === "audio") {
+        //   if (!chip.disabled) openAudioFormatModal(function () { downloadAsset(chip, false); });
+        //   return;
+        // }
+
         if (chip.getAttribute("data-kind") === "audio") {
-          if (!chip.disabled) openAudioFormatModal(function () { downloadAsset(chip, false); });
+          if (chip.disabled) return;
+
+          var format = chip.getAttribute("data-audio-format");
+
+          if (format === "original" || format === "mp3" || format === "wav") {
+            selectedAudioChoice = format;
+            downloadAsset(chip, false);
+          }
+
           return;
         }
+
+
+
+
         if (!chip.disabled) downloadAsset(chip, false);
       });
 
