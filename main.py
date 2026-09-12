@@ -54,7 +54,7 @@ def get_rights():
         return jsonify({"error": "External service unavailable"}), 502
 
 
-@app.get("/playlist")
+@app.get("/playlist/")
 def playlist():
     return render_template("rana_playlist.html")
 
