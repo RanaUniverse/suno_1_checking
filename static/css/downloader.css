@@ -1200,7 +1200,7 @@ html[data-theme="light"] .dl-toast.is-error {
     margin-top: 40px;
     padding: 24px 26px;
     background: var(--card-bg);
-    border: 1px solid var(--card-border);
+    border: 10px solid var(--card-border);
     border-radius: 16px;
 }
 
