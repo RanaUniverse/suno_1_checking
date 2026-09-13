@@ -1,12 +1,15 @@
-from flask import Flask, render_template
+from flask import render_template
 
 from flask import request, jsonify
 
 import requests
 
+
 from app.external_service import call_external_post_api_call, get_suno_proxy
 
-app = Flask(__name__)
+from flask_di import DIFlask
+
+app = DIFlask(__name__)
 
 
 @app.route("/")
