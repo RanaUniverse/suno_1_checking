@@ -1,0 +1,10 @@
+Register NOW:
+Verify your email address
+
+Your verification code is:
+
+{{ otp }}
+
+This code is valid for {{ valid_seconds }} seconds.
+
+If you did not try to create an account, you can safely ignore this email.

@@ -1,0 +1,6 @@
+Hello User,Your login OTP is:
+{{ otp }}
+
+This code is valid for {{ valid_seconds }} seconds.
+If you didn't request this login, ignore this email.
+- Rana Universe

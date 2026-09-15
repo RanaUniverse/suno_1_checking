@@ -1,0 +1,35 @@
+{#
+This is the file i keep here
+so that i can use this for send login otp to the email
+#}
+
+<!doctype html>
+<html>
+
+<body>
+
+    <h2>Login Verification</h2>
+
+    <p>Hello User,</p>
+
+    <p>Your login OTP is:</p>
+
+    <h1>{{ otp|default("Error(Somethings Wrong)") }}</h1>
+
+    <p>
+        This code is valid for
+        <strong>{{ valid_seconds|default(99) }}</strong>
+        seconds.
+    </p>
+
+    <p>
+        If you didn't request this login, ignore this email.
+    </p>
+
+    <p>
+        — Rana Universe
+    </p>
+
+</body>
+
+</html>
