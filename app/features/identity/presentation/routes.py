@@ -215,7 +215,7 @@ def verify_registration_otp(
             )
             return redirect(
                 url_for(
-                    "general_bp.home_page",
+                    "general_bp.home",
                 )
             )
 
@@ -334,7 +334,7 @@ def login(
                 message="Login Successful",
                 category="success",
             )
-            return redirect(url_for("general_bp.home_page"))
+            return redirect(url_for("general_bp.home"))
         else:
             flash(
                 message="Wrong Credentials",
@@ -414,7 +414,7 @@ def login(
 
 #             return redirect(
 #                 url_for(
-#                     "general_bp.home_page",
+#                     "general_bp.home",
 #                 )
 #             )
 
@@ -599,7 +599,7 @@ def verify_login_otp(
                 message="✅ OTP verified successfully! 🎉 You are now logged in.",
                 category=FlashCategory.SUCCESS,
             )
-            return redirect(url_for("general_bp.home_page"))
+            return redirect(url_for("general_bp.home"))
 
         # This line means not success
         flash(
@@ -705,4 +705,4 @@ def logout():
         message="You have been logout goodly",
         category="danger",
     )
-    return redirect(location=url_for("general_bp.home_page"))
+    return redirect(location=url_for("general_bp.home"))
