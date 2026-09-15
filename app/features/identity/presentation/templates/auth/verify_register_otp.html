@@ -1,0 +1,164 @@
+{#
+app/features/identity/presentation/templates/auth/verify_register_otp.html
+
+verify otp page to shows here
+#}
+
+
+{% extends "base.html" %}
+
+{% block title %}Register OTP Verification{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+
+            <div class="card shadow border-0 mt-5">
+
+                <div class="card-body p-4">
+
+                    <div class="text-center mb-4">
+
+                        <div class="mb-3">
+                            <i class="bi bi-shield-lock-fill fs-1 text-primary"></i>
+                        </div>
+
+                        <h2 class="fw-bold">
+                            Verify OTP
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            We've sent a verification code to
+                        </p>
+
+                        <p class="fw-semibold mb-0">
+                            {{ email }}
+                        </p>
+
+                    </div>
+
+
+                    <form method="POST">
+
+                        {{ form.hidden_tag() }}
+
+
+                        <div class="mb-3">
+
+                            {{ form.otp.label(
+                            class="form-label fw-semibold"
+                            ) }}
+
+                            {{ form.otp(
+                            class="form-control form-control-lg text-center",
+                            placeholder="Enter OTP",
+                            autocomplete="one-time-code",
+                            inputmode="numeric",
+                            pattern="[0-9]*",
+                            ) }}
+
+                            {% for error in form.otp.errors %}
+                            <div class="text-danger small mt-1">
+                                {{ error }}
+                            </div>
+                            {% endfor %}
+
+                        </div>
+
+
+                        <div class="d-grid">
+
+                            {{ form.submit(
+                            class="btn btn-primary btn-lg"
+                            ) }}
+
+                        </div>
+
+
+                    </form>
+                    <div class="text-center mt-3">
+                        <form method="POST" action="{{ url_for('auth_bp.change_registration_email') }}">
+                            {{ form.hidden_tag() }}
+
+                            <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                Use a different email
+                            </button>
+                        </form>
+                    </div>
+
+
+
+
+
+
+                    <div class="text-center mt-4">
+
+                        <p class="text-muted small mb-2">
+                            Didn't receive the code?
+                            <i class="bi bi-info-circle ms-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="You can request a new OTP after the countdown finishes." style="cursor: help;">
+                            </i>
+                        </p>
+
+
+
+
+
+                        <form method="POST" action="{{ url_for('auth_bp.resend_registration_otp') }}">
+                            {{ form.hidden_tag() }}
+
+                            <button type="submit" id="resend-otp-btn" class="btn btn-link btn-sm text-decoration-none"
+                                disabled>
+                                {# i can pass the value as int my js will convert it automatically #}
+                                Resend OTP in
+                                <span id="otp-countdown">
+                                    5
+                                </span>s
+                            </button>
+                        </form>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <hr class="my-4">
+
+
+                    <p class="text-center mb-0 text-muted">
+
+                        Already have an account?
+
+                        <a href="{{ url_for('auth_bp.login') }}" class="text-decoration-none fw-semibold">
+                            Login
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block custom_js %}
+<script src="{{url_for('auth_bp.static' ,filename='auth/js/verify_otp.js' )}}">
+</script>
+{% endblock %}

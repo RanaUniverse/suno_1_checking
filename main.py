@@ -1,68 +1,44 @@
-from flask import render_template
+"""
+main.py
 
-from flask import request, jsonify
-
-import requests
-
-
-from app.external_service import call_external_post_api_call, get_suno_proxy
+This will my running point of my app
+"""
 
 from flask_di import DIFlask
 
-app = DIFlask(__name__)
+
+from app.shared.extensions import login_manager, csrf
+from app.features.identity.presentation.routes import auth_bp
+from app.features.general.routes import general_bp
 
 
-@app.route("/")
-def home():
-    return render_template(
-        template_name_or_list="index.html",
+def create_app() -> DIFlask:
+    app = DIFlask(
+        import_name=__name__,
     )
 
-
-@app.get("/api/suno/proxy")
-def get_proxy():
-
-    target_url = request.args.get("url")
-
-    if not target_url:
-        return {"error": "Missing url"}, 400
-
-    result = get_suno_proxy(
-        song_url=target_url,
+    login_manager.init_app(  # type: ignore
+        app=app,
     )
-    return result
 
+    csrf.init_app(  # type: ignore
+        app=app,
+    )
 
-@app.post("/api/RanaUniverse/rights")
-def get_rights():
-    try:
-        data = request.get_json()
+    from app.config import settings
 
-        content_id = data["content_params"]["content_id"]
-        content_type = data["content_params"]["content_type"]
-
-    except (TypeError, KeyError):
-        return jsonify({"error": "Invalid request body"}), 400
-
-    try:
-        result = call_external_post_api_call(
-            content_id=content_id,
-            content_type=content_type,
-        )
-        return jsonify(result), 200
-
-    except requests.RequestException as e:
-        print(f"External API error: {e}")
-
-        return jsonify({"error": "External service unavailable"}), 502
-
-
-@app.get("/playlist/")
-def playlist():
-    return render_template("rana_playlist.html")
+    app.secret_key = settings.app.secret_key.get_secret_value()
+    app.register_blueprint(
+        blueprint=auth_bp,
+    )
+    app.register_blueprint(
+        blueprint=general_bp,
+    )
+    return app
 
 
 if __name__ == "__main__":
+    app = create_app()
     app.run(
         host="0.0.0.0",
         port=9999,

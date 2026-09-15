@@ -1,0 +1,116 @@
+{#
+app/features/identity/presentation/templates/auth/login_with_otp.html
+
+Page for starting email OTP login.
+#}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6 col-lg-5">
+
+        <div class="card shadow border-0 mt-5">
+
+            <div class="card-body p-4">
+
+                <!-- Header -->
+                <div class="text-center mb-4">
+
+                    <div class="mb-2">
+                        <i class="bi bi-envelope-check fs-1 text-primary"></i>
+                    </div>
+
+                    <h2 class="fw-bold mb-1">
+                        Login with Email 📧
+                    </h2>
+
+                    <p class="text-muted mb-0">
+                        We'll send a <b>secure login code</b> to your email.
+                    </p>
+
+                </div>
+
+
+                <!-- Email Form -->
+                <form method="POST" action="{{ url_for('auth_bp.login_with_otp') }}">
+
+                    {{ form.hidden_tag() }}
+
+                    <div class="mb-3">
+
+                        {{ form.email.label(
+                        class="form-label fw-semibold"
+                        ) }}
+
+                        {{ form.email(
+                        class="form-control form-control-lg",
+                        placeholder="Enter your email",
+                        autocomplete="email"
+                        ) }}
+
+                    </div>
+
+
+                    <div class="d-grid">
+
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            📧 Get Login Code
+                        </button>
+
+                    </div>
+
+                </form>
+                <!-- Alternative Login -->
+                <div class="text-center my-4">
+
+                    <div class="d-flex align-items-center">
+
+                        <hr class="flex-grow-1">
+
+                        <span class="mx-3 text-muted small">
+                            OR
+                        </span>
+
+                        <hr class="flex-grow-1">
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="d-grid">
+
+
+                    <a href="{{ url_for('auth_bp.login') }}" class="btn btn-outline-primary">
+                        🔐 Login with Password
+                    </a>
+
+                </div>
+
+
+                <div class="text-center mt-4 pt-3 border-top">
+
+                    <p class="text-muted mb-1">
+                        Don't have an account?
+                    </p>
+
+                    <a href="{{ url_for('auth_bp.register') }}" class="fw-semibold text-decoration-none">
+                        ✨ Create an account
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

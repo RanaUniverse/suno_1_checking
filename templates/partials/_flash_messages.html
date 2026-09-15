@@ -1,0 +1,46 @@
+{#
+templates/partials/_flash_messages.html
+
+Here i will write the logic to shows the
+alter things based on the flash(msg,category)
+#}
+
+{#
+Below the category value will be one of the bootstrap color which
+i will use Here upon using the below in python code:
+flash(msg,category) this will below executs as it will come as list
+#}
+
+{%
+set icon_map = {
+"primary": "check-circle",
+"secondary": "slash-circle",
+"success": "check-circle",
+"danger": "x-circle",
+"warning": "exclamation-triangle",
+"info": "check-circle",
+"light": "lightbulb",
+"dark": "moon"}
+%}
+
+{% with messages = get_flashed_messages(with_categories = true) %}
+{% if messages %}
+<div class="container mt-3">
+    {% for category, message in messages %}
+
+    {% set icon_name = icon_map.get(category, "messenger") %}
+
+    <div class="alert alert-{{ category }} d-flex alert-dismissible fade show" role="alert">
+        <i class="bi bi-{{ icon_name }} me-2"></i>
+        <div>
+            {{ message }}
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
+    </div>
+
+    {% endfor %}
+
+</div>
+{% endif %}
+{% endwith %}

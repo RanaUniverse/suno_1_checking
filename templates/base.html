@@ -1,0 +1,49 @@
+{#
+i will later use all my thigns comes form thsi base
+for now the identity are going from here
+#}
+
+
+{#
+templates/base.html
+This is the main base html file i will use
+#}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>
+        {% block title %}
+        Send Email To Customers
+        {% endblock %}
+    </title>
+    {% include 'partials/_assets_css.html' %}
+</head>
+
+<body>
+    <header>
+        {%- include 'partials/_navbar.html' -%}
+    </header>
+
+    {%- include 'partials/_flash_messages.html' -%}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'partials/_footer.html' %}
+    {% include 'partials/_assets_js.html' %}
+
+    {% block custom_js %}
+    I will inject different js file relative links here
+    i shuold to think about CSP there.
+    {% endblock %}
+
+</body>
+
+</html>
