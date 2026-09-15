@@ -7,21 +7,24 @@ Here i will try to call the external service from my server
 import requests
 
 
-from app.config import RIGHTS_URL, BASE_URL, SUNO_PROXY_URL
+from app.config import settings
 
 
 def call_external_post_api_call(
     content_id: str,
     content_type: str = "clip",
-    url: str = RIGHTS_URL,
+    url: str | None = None,
 ) -> str:
+
+    if url is None:
+        url = str(settings.urls.rights)
 
     headers = {
         "Accept": "application/json",
         "Accept-Language": "en-US,en;q=0.7",
         "Content-Type": "application/json",
-        "Origin": BASE_URL,
-        "Referer": BASE_URL,
+        "Origin": f"{settings.urls.base}",
+        "Referer": f"{settings.urls.base}",
         "User-Agent": (
             "Mozilla/5.0 (X11; Linux x86_64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -44,7 +47,14 @@ def call_external_post_api_call(
             timeout=10,
         )
 
+        print("STATUS:", response.status_code)
+        print("URL:", response.url)
+        print("HEADERS:", dict(response.headers))
+        print("BODY:", response.text[:3000])
+
         response.raise_for_status()
+
+        # response.raise_for_status()
 
         return response.json()
 
@@ -54,8 +64,11 @@ def call_external_post_api_call(
 
 def get_suno_proxy(
     song_url: str,
-    proxy_url: str = SUNO_PROXY_URL,
+    proxy_url: str | None = None,
 ) -> bytes:
+    base_url = settings.urls.base
+    if proxy_url is None:
+        proxy_url = str(settings.urls.suno_proxy)
 
     params = {
         "url": song_url,
@@ -64,8 +77,8 @@ def get_suno_proxy(
     headers = {
         "Accept": "*/*",
         "Accept-Language": "en-US,en;q=0.7",
-        "Origin": BASE_URL,
-        "Referer": f"{BASE_URL}/",
+        "Origin": f"{base_url}",
+        "Referer": f"{base_url}/",
         "User-Agent": (
             "Mozilla/5.0 (X11; Linux x86_64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
