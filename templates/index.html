@@ -1,370 +1,360 @@
 {#
 index.html
+
+This is the main page to shows to give the link of the song
 #}
 
-<!DOCTYPE html>
-<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block title %}
+Free Ai Songs Downloader - Rana Universe
+{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="/static/css/shared.css">
+<link rel="stylesheet" href="/static/css/suno-audio-controls.css" />
+<link rel="stylesheet" href="/static/css/theme.css">
+<link rel="stylesheet" href="/static/css/downloader.css">
+<link rel="stylesheet" href="/static/css/rana.css">
+{% endblock %}
+
+{% block head_js %}
+<script src="/static/js/theme-init.js"></script>
+<script src="/static/js/refresh-top-on-reload.js"></script>
+{% endblock %}
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Ai Songs Downloader - Rana Universe</title>
-  <meta name="description"
-    content="First Without Any Account You Can try how our service works then you can come and check how to download songs in free of cost?" />
-  <link rel="canonical" href="https://github.com/RanaUniverse" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
 
-  <meta property="og:title" content="Free Ai Songs Downloader | RanaUniverse@upi" />
-  <meta property="og:description"
-    content="Free Songs Download here with different formats | Developed By Rana Universe" />
-  <meta property="og:url" content="https://github.com/RanaUniverse" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/142967497?v=4">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Rana Universe 🍌🍌🍌" />
-  {#
-  Below image i will add #TODO
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-  <link rel="manifest" href="/tools/downloader/manifest.webmanifest?v=20260904-route-1" />
-  #}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
-  {#
-  i will need to restructers all the css to change my colors
-  #}
-  <link rel="stylesheet" href="/static/css/shared.css">
-  <link rel="stylesheet" href="/static/css/suno-audio-controls.css" />
-
-  <script src="/static/js/theme-init.js"></script>
-  <script src="/static/js/refresh-top-on-reload.js"></script>
-  <link rel="stylesheet" href="/static/css/theme.css">
-  <link rel="stylesheet" href="/static/css/downloader.css">
-  <link rel="stylesheet" href="/static/css/rana.css">
 
 
 </head>
 
-<body class="dl-page">
 
-  <nav class="site-nav" aria-label="Main">
-    <div class="nav-container">
-      <a href="/" class="logo"><img src="/static/favicon/ru.png" alt="MY logo" width="32" height="32"
-          decoding="async" /><span>Download Ai Songs</span></a>
-    </div>
-  </nav>
-
-  <main>
-    <div class="container">
-      <div class="dl-shell">
-
-        <form class="dl-form" id="dl-form" autocomplete="off">
-          <div class="dl-input-wrap">
-            <textarea id="dl-input" name="url"
-              placeholder="🎵 Paste your song link here…&#10;🔗 Example: https://suno.com/s/abc123xyz"
-              spellcheck="false" aria-label="Suno song URL" rows="3"></textarea>
-            <div class="dl-input-bar">
-              <button type="button" class="dl-paste-btn" id="dl-paste"
-                aria-label="Paste a Suno link from the clipboard">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                  stroke-linejoin="round" aria-hidden="true">
-                  <rect x="6" y="5" width="12" height="16" rx="2" />
-                  <path d="M9 5V3h6v2M9 9h6" />
-                </svg>
-                <span id="dl-paste-label">Paste</span>
-              </button>
-              <button type="submit" class="dl-btn-primary" id="dl-submit" aria-label="Find download options">
-                <span class="dl-submit-spinner" aria-hidden="true">
-                </span>
-
-
-                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 4v12" />
-                  <path d="M7 11l5 5 5-5" />
-                  <path d="M5 20h14" />
-                </svg>
-
-                <span class="dl-submit-label-wide">Download Song</span>
-                <span class="dl-submit-label-compact">Download Song</span>
-
-              </button>
-            </div>
-          </div>
-        </form>
-        <div class="tool-example" aria-label="Example Suno song link">
-          <span>Demo Example:</span>
-          <a id="dl-example-link" href="https://suno.com/s/kuuNnXWLBeiaN1wU" target="_blank" rel="noopener">
-            https://suno.com/s/kuuNnXWLBeiaN1wU
-          </a>
-          <button type="button" id="dl-example-try">
-            Try It
-          </button>
-        </div>
+{% block content %}
 
 
 
 
+<!-- <nav class="site-nav" aria-label="Main">
+  <div class="nav-container">
+    <a href="/" class="logo"><img src="/static/favicon/ru.png" alt="MY logo" width="32" height="32"
+        decoding="async" /><span>Download Ai Songs</span></a>
+  </div>
+</nav> -->
 
+<main>
+  <div class="container">
+    <div class="dl-shell">
 
-        <p class="dl-form-hint" id="dl-status" role="status" aria-live="polite">
-          Works with public Suno song and Hook links.
-        </p>
-        <p class="dl-cross-link-top" aria-label="More download tools">
-          <span>Need to save more than one song?</span>
-          <span class="dl-cross-link-top__links">
-            <a href="/tools/batch/">Batch downloader <span aria-hidden="true">→</span></a>
-            <a href="/playlist/">Save a playlist <span aria-hidden="true">→</span></a>
-          </span>
-        </p>
-        </section>
-
-        <article class="song-hero dl-hidden" id="dl-hero" aria-live="polite">
-          <div class="song-hero-actions">
-            <a class="song-hero-analyze" id="dl-analyze-song" href="/tools/parser/" aria-label="Analyze this song">
+      <form class="dl-form" id="dl-form" autocomplete="off">
+        <div class="dl-input-wrap">
+          <textarea id="dl-input" name="url"
+            placeholder="🎵 Paste your song link here…&#10;🔗 Example: https://suno.com/s/abc123xyz" spellcheck="false"
+            aria-label="Suno song URL" rows="3"></textarea>
+          <div class="dl-input-bar">
+            <button type="button" class="dl-paste-btn" id="dl-paste" aria-label="Paste a Suno link from the clipboard">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 19V9" />
-                <path d="M10 19V5" />
-                <path d="M16 19v-7" />
-                <path d="M22 19H2" />
+                <rect x="6" y="5" width="12" height="16" rx="2" />
+                <path d="M9 5V3h6v2M9 9h6" />
               </svg>
-              Analyze
-            </a>
-
-            <a class="song-hero-suno" id="dl-open-song" target="_blank" rel="noopener" aria-label="Open on Suno">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 4h6v6" />
-                <path d="M20 4L10 14" />
-                <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" />
-              </svg>
-              on Suno
-            </a>
-          </div>
-
-          <div class="song-hero-top">
-            <img class="song-hero-cover" id="dl-cover" alt="" loading="lazy" decoding="async"
-              referrerpolicy="no-referrer" />
-            <div class="song-hero-body">
-              <h2 class="song-hero-title" id="dl-title">Song title</h2>
-              <div class="song-hero-details-disclosure" id="dl-details-disclosure">
-                <button type="button" class="song-hero-details-toggle" id="dl-details-toggle" aria-controls="dl-details"
-                  aria-expanded="false">
-                  <span id="dl-details-toggle-label">Show more</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </button>
-                <div class="song-hero-details" id="dl-details">
-                  <p class="song-hero-artist" id="dl-artist"></p>
-                  <ul class="song-hero-meta" id="dl-meta-list"></ul>
-                  <div class="song-hero-tags" id="dl-tags"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <section class="dl-section dl-hidden" id="dl-download-section">
-          <p class="dl-section-label">Download This Song Below</p>
-
-          <div class="dl-rail" id="dl-rail">
-
-            <div class="dl-audio-options">
-
-              <button type="button" class="dl-chip dl-audio-format-choice " data-kind="audio"
-                data-audio-format="original" title="Download original audio">
-                <strong>⚡ Original Audio</strong>
-                <span>
-                  Fastest. Keeps the original audio format and quality unchanged.
-                </span>
-                <span class="dl-chip-sub">
-                  Original
-                </span>
-              </button>
-
-
-              <button type="button" class="dl-chip dl-audio-format-choice" data-kind="audio" data-audio-format="mp3"
-                title="Download MP3 audio">
-                <strong>🎵 MP3</strong>
-                <span>
-                  Most compatible. Includes available title, creator, style, cover art and lyrics.
-                </span>
-                <span class="dl-chip-sub">
-                  MP3
-                </span>
-              </button>
-
-
-              <button type="button" class="dl-chip dl-audio-format-choice" data-kind="audio" data-audio-format="wav"
-                title="Download WAV audio">
-                <strong>🎧 WAV</strong>
-                <span>
-                  Uncompressed for editing. Higher quality, but the file is much larger.
-                </span>
-                <span class="dl-chip-sub">
-                  WAV
-                </span>
-              </button>
-
-
-            </div>
-
-
-            <button type="button" class="dl-chip" data-kind="mp4" id="dl-chip-mp4" title="Download MP4 video">
-              <span class="dl-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="6" width="18" height="12" rx="2" />
-                  <path d="M10 10l5 2-5 2z" fill="currentColor" stroke="none" />
-                </svg></span>
-              <span class="dl-chip-body">
-                <span class="dl-chip-kind">Video</span>
-                <span class="dl-chip-sub">MP4</span>
+              <span id="dl-paste-label">Paste</span>
+            </button>
+            <button type="submit" class="dl-btn-primary" id="dl-submit" aria-label="Find download options">
+              <span class="dl-submit-spinner" aria-hidden="true">
               </span>
-              <svg class="dl-chip-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+
+
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 4v12" />
                 <path d="M7 11l5 5 5-5" />
                 <path d="M5 20h14" />
               </svg>
-              <span class="dl-chip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 8v5" />
-                  <path d="M12 16h.01" />
-                </svg></span>
+
+              <span class="dl-submit-label-wide">Download Song</span>
+              <span class="dl-submit-label-compact">Download Song</span>
+
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="tool-example" aria-label="Example Suno song link">
+        <span>Demo Example:</span>
+        <a id="dl-example-link" href="https://suno.com/s/kuuNnXWLBeiaN1wU" target="_blank" rel="noopener">
+          https://suno.com/s/kuuNnXWLBeiaN1wU
+        </a>
+        <button type="button" id="dl-example-try">
+          Try It
+        </button>
+      </div>
+
+
+
+
+
+
+      <p class="dl-form-hint" id="dl-status" role="status" aria-live="polite">
+        Works with public Suno song and Hook links.
+      </p>
+      <p class="dl-cross-link-top" aria-label="More download tools">
+        <span>Need to save more than one song?</span>
+        <span class="dl-cross-link-top__links">
+          <a href="/tools/batch/">Batch downloader <span aria-hidden="true">→</span></a>
+          <a href="/playlist/">Save a playlist <span aria-hidden="true">→</span></a>
+        </span>
+      </p>
+      </section>
+
+      <article class="song-hero dl-hidden" id="dl-hero" aria-live="polite">
+        <div class="song-hero-actions">
+          <a class="song-hero-analyze" id="dl-analyze-song" href="/tools/parser/" aria-label="Analyze this song">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19V9" />
+              <path d="M10 19V5" />
+              <path d="M16 19v-7" />
+              <path d="M22 19H2" />
+            </svg>
+            Analyze
+          </a>
+
+          <a class="song-hero-suno" id="dl-open-song" target="_blank" rel="noopener" aria-label="Open on Suno">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 4h6v6" />
+              <path d="M20 4L10 14" />
+              <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" />
+            </svg>
+            on Suno
+          </a>
+        </div>
+
+        <div class="song-hero-top">
+          <img class="song-hero-cover" id="dl-cover" alt="" loading="lazy" decoding="async"
+            referrerpolicy="no-referrer" />
+          <div class="song-hero-body">
+            <h2 class="song-hero-title" id="dl-title">Song title</h2>
+            <div class="song-hero-details-disclosure" id="dl-details-disclosure">
+              <button type="button" class="song-hero-details-toggle" id="dl-details-toggle" aria-controls="dl-details"
+                aria-expanded="false">
+                <span id="dl-details-toggle-label">Show more</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div class="song-hero-details" id="dl-details">
+                <p class="song-hero-artist" id="dl-artist"></p>
+                <ul class="song-hero-meta" id="dl-meta-list"></ul>
+                <div class="song-hero-tags" id="dl-tags"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="dl-section dl-hidden" id="dl-download-section">
+        <p class="dl-section-label">Download This Song Below</p>
+
+        <div class="dl-rail" id="dl-rail">
+
+          <div class="dl-audio-options">
+
+            <button type="button" class="dl-chip dl-audio-format-choice " data-kind="audio" data-audio-format="original"
+              title="Download original audio">
+              <strong>⚡ Original Audio</strong>
+              <span>
+                Fastest. Keeps the original audio format and quality unchanged.
+              </span>
+              <span class="dl-chip-sub">
+                Original
+              </span>
             </button>
 
-          </div>
-        </section>
 
-        <section class="dl-section dl-hidden" id="dl-preview">
-          <p class="dl-section-label">Preview</p>
-          <div class="dl-preview-stack">
-            <div class="dl-audio-wrap">
-              <audio id="dl-audio" controls preload="none"></audio>
-            </div>
-            <div class="dl-video-wrap dl-hidden" id="dl-video-wrap">
-              <video id="dl-video" controls preload="metadata" playsinline></video>
-            </div>
-            <p class="dl-preview-miss dl-hidden" id="dl-video-miss" role="note">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
+            <button type="button" class="dl-chip dl-audio-format-choice" data-kind="audio" data-audio-format="mp3"
+              title="Download MP3 audio">
+              <strong>🎵 MP3</strong>
+              <span>
+                Most compatible. Includes available title, creator, style, cover art and lyrics.
+              </span>
+              <span class="dl-chip-sub">
+                MP3
+              </span>
+            </button>
+
+
+            <button type="button" class="dl-chip dl-audio-format-choice" data-kind="audio" data-audio-format="wav"
+              title="Download WAV audio">
+              <strong>🎧 WAV</strong>
+              <span>
+                Uncompressed for editing. Higher quality, but the file is much larger.
+              </span>
+              <span class="dl-chip-sub">
+                WAV
+              </span>
+            </button>
+
+
+          </div>
+
+
+          <button type="button" class="dl-chip" data-kind="mp4" id="dl-chip-mp4" title="Download MP4 video">
+            <span class="dl-chip-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="12" rx="2" />
+                <path d="M10 10l5 2-5 2z" fill="currentColor" stroke="none" />
+              </svg></span>
+            <span class="dl-chip-body">
+              <span class="dl-chip-kind">Video</span>
+              <span class="dl-chip-sub">MP4</span>
+            </span>
+            <svg class="dl-chip-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 4v12" />
+              <path d="M7 11l5 5 5-5" />
+              <path d="M5 20h14" />
+            </svg>
+            <span class="dl-chip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 8v5" />
                 <path d="M12 16h.01" />
-              </svg>
-              <span><strong>No video for this item.</strong> Suno only published audio for this item. You can still
-                download MP3, WAV or original audio and cover art above, or click Video to make a lyric MV.</span>
-            </p>
+              </svg></span>
+          </button>
+
+        </div>
+      </section>
+
+      <section class="dl-section dl-hidden" id="dl-preview">
+        <p class="dl-section-label">Preview</p>
+        <div class="dl-preview-stack">
+          <div class="dl-audio-wrap">
+            <audio id="dl-audio" controls preload="none"></audio>
           </div>
-        </section>
-
-
-        <section class="dl-help">
-          <h2>What this tool is for</h2>
-          <p class="dl-cross-link">
-            Need to save more than one song? Use the <a href="/tools/batch/">batch downloader</a> for selected links, or
-            try the <a href="/playlist/">Suno playlist downloader &rarr;</a>
+          <div class="dl-video-wrap dl-hidden" id="dl-video-wrap">
+            <video id="dl-video" controls preload="metadata" playsinline></video>
+          </div>
+          <p class="dl-preview-miss dl-hidden" id="dl-video-miss" role="note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 8v5" />
+              <path d="M12 16h.01" />
+            </svg>
+            <span><strong>No video for this item.</strong> Suno only published audio for this item. You can still
+              download MP3, WAV or original audio and cover art above, or click Video to make a lyric MV.</span>
           </p>
-        </section>
-      </div>
+        </div>
+      </section>
+
+
+      <section class="dl-help">
+        <h2>What this tool is for</h2>
+        <p class="dl-cross-link">
+          Need to save more than one song? Use the <a href="/tools/batch/">batch downloader</a> for selected links, or
+          try the <a href="/playlist/">Suno playlist downloader &rarr;</a>
+        </p>
+      </section>
     </div>
-    <!-- <section class="container tool-help">
+  </div>
+  <!-- <section class="container tool-help">
       <h2>Add timestamps to your finished lyrics</h2>
       <p>Have the audio and the words ready? Use the <a href="/tools/lyrics-timestamp/">Lyrics Timestamp Tool</a> to
         sync lyrics to the song and export LRC for a music player or SRT and VTT for video subtitles.</p>
     </section> -->
-  </main>
+</main>
 
-  <div class="dl-toast" id="dl-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="dl-toast" id="dl-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-  <div class="dl-processing dl-hidden is-indeterminate" id="dl-processing" role="dialog" aria-modal="true"
-    aria-labelledby="dl-processing-title" aria-describedby="dl-processing-stage">
-    <div class="dl-processing-card" tabindex="-1">
-      <div class="dl-processing-head">
-        <span class="dl-processing-spinner" aria-hidden="true"></span>
-        <div>
-          <h2 id="dl-processing-title">Preparing your audio</h2>
-          <p class="dl-processing-stage" id="dl-processing-stage" role="status" aria-live="polite">Preparing audio…</p>
-        </div>
-      </div>
-      <div class="dl-processing-track" id="dl-processing-track" role="progressbar"
-        aria-label="Audio conversion progress" aria-valuemin="0" aria-valuemax="100">
-        <div class="dl-processing-bar" id="dl-processing-bar"></div>
-      </div>
-      <p class="dl-processing-detail" id="dl-processing-detail">Please keep this page open</p>
-      <p class="dl-processing-error-copy" id="dl-processing-error-copy">This browser could not convert the track.</p>
-      <div class="dl-processing-actions">
-        <button type="button" class="dl-btn-primary dl-hidden" id="dl-processing-original">Download original
-          audio</button>
-        <button type="button" class="dl-btn-secondary dl-hidden" id="dl-processing-retry">Try again</button>
-        <button type="button" class="dl-btn-secondary" id="dl-processing-cancel">Cancel</button>
+<div class="dl-processing dl-hidden is-indeterminate" id="dl-processing" role="dialog" aria-modal="true"
+  aria-labelledby="dl-processing-title" aria-describedby="dl-processing-stage">
+  <div class="dl-processing-card" tabindex="-1">
+    <div class="dl-processing-head">
+      <span class="dl-processing-spinner" aria-hidden="true"></span>
+      <div>
+        <h2 id="dl-processing-title">Preparing your audio</h2>
+        <p class="dl-processing-stage" id="dl-processing-stage" role="status" aria-live="polite">Preparing audio…</p>
       </div>
     </div>
-  </div>
-
-
-  <div class="dl-modal dl-hidden" id="dl-playlist-modal" role="presentation">
-    <div class="dl-modal-card" role="dialog" aria-modal="true" aria-labelledby="dl-playlist-modal-title"
-      aria-describedby="dl-playlist-modal-description" tabindex="-1">
-      <button type="button" class="dl-modal-close" id="dl-playlist-modal-close"
-        aria-label="Close playlist notice">×</button>
-      <p class="dl-modal-kicker">Playlist link detected</p>
-      <h2 id="dl-playlist-modal-title">This is a Suno playlist link</h2>
-      <h3>Please Subscribe To Pro Version To Download All Songs quickly</h3>
-      <p id="dl-playlist-modal-description">The single-song downloader handles one song at a time. Open the playlist
-        downloader to load the songs and choose individual files or a ZIP.</p>
-      <div class="dl-modal-actions">
-        <a class="dl-btn-primary" id="dl-open-playlist" href="/playlist/">Open playlist downloader <span
-            aria-hidden="true">→</span></a>
-        <button type="button" class="dl-btn-secondary" id="dl-stay-song">Stay on song downloader</button>
-      </div>
+    <div class="dl-processing-track" id="dl-processing-track" role="progressbar" aria-label="Audio conversion progress"
+      aria-valuemin="0" aria-valuemax="100">
+      <div class="dl-processing-bar" id="dl-processing-bar"></div>
+    </div>
+    <p class="dl-processing-detail" id="dl-processing-detail">Please keep this page open</p>
+    <p class="dl-processing-error-copy" id="dl-processing-error-copy">This browser could not convert the track.</p>
+    <div class="dl-processing-actions">
+      <button type="button" class="dl-btn-primary dl-hidden" id="dl-processing-original">Download original
+        audio</button>
+      <button type="button" class="dl-btn-secondary dl-hidden" id="dl-processing-retry">Try again</button>
+      <button type="button" class="dl-btn-secondary" id="dl-processing-cancel">Cancel</button>
     </div>
   </div>
+</div>
 
-  <div class="dl-modal dl-hidden" id="dl-profile-modal" role="presentation">
-    <div class="dl-modal-card" role="dialog" aria-modal="true" aria-labelledby="dl-profile-modal-title"
-      aria-describedby="dl-profile-modal-description" tabindex="-1">
-      <button type="button" class="dl-modal-close" id="dl-profile-modal-close"
-        aria-label="Close profile notice">×</button>
-      <p class="dl-modal-kicker">Profile link detected</p>
-      <h2 id="dl-profile-modal-title">This is a Suno profile link</h2>
-      <p id="dl-profile-modal-description">The single-song downloader handles one song at a time. Open the profile
-        downloader to list the creator’s public songs and save them individually or as a ZIP.</p>
-      <div class="dl-modal-actions">
-        <a class="dl-btn-primary" id="dl-open-profile" href="/tools/profile-downloader/">Open profile downloader <span
-            aria-hidden="true">→</span></a>
-        <button type="button" class="dl-btn-secondary" id="dl-stay-song-profile">Stay on song downloader</button>
-      </div>
+
+<div class="dl-modal dl-hidden" id="dl-playlist-modal" role="presentation">
+  <div class="dl-modal-card" role="dialog" aria-modal="true" aria-labelledby="dl-playlist-modal-title"
+    aria-describedby="dl-playlist-modal-description" tabindex="-1">
+    <button type="button" class="dl-modal-close" id="dl-playlist-modal-close"
+      aria-label="Close playlist notice">×</button>
+    <p class="dl-modal-kicker">Playlist link detected</p>
+    <h2 id="dl-playlist-modal-title">This is a Suno playlist link</h2>
+    <h3>Please Subscribe To Pro Version To Download All Songs quickly</h3>
+    <p id="dl-playlist-modal-description">The single-song downloader handles one song at a time. Open the playlist
+      downloader to load the songs and choose individual files or a ZIP.</p>
+    <div class="dl-modal-actions">
+      <a class="dl-btn-primary" id="dl-open-playlist" href="/playlist/">Open playlist downloader <span
+          aria-hidden="true">→</span></a>
+      <button type="button" class="dl-btn-secondary" id="dl-stay-song">Stay on song downloader</button>
     </div>
   </div>
+</div>
 
-
-  <div class="dl-modal dl-hidden" id="dl-next-steps-modal" role="presentation" aria-hidden="true">
+<div class="dl-modal dl-hidden" id="dl-profile-modal" role="presentation">
+  <div class="dl-modal-card" role="dialog" aria-modal="true" aria-labelledby="dl-profile-modal-title"
+    aria-describedby="dl-profile-modal-description" tabindex="-1">
+    <button type="button" class="dl-modal-close" id="dl-profile-modal-close"
+      aria-label="Close profile notice">×</button>
+    <p class="dl-modal-kicker">Profile link detected</p>
+    <h2 id="dl-profile-modal-title">This is a Suno profile link</h2>
+    <p id="dl-profile-modal-description">The single-song downloader handles one song at a time. Open the profile
+      downloader to list the creator’s public songs and save them individually or as a ZIP.</p>
+    <div class="dl-modal-actions">
+      <a class="dl-btn-primary" id="dl-open-profile" href="/tools/profile-downloader/">Open profile downloader <span
+          aria-hidden="true">→</span></a>
+      <button type="button" class="dl-btn-secondary" id="dl-stay-song-profile">Stay on song downloader</button>
+    </div>
   </div>
-
-  {% include 'rana.html' %}
-
+</div>
 
 
+<div class="dl-modal dl-hidden" id="dl-next-steps-modal" role="presentation" aria-hidden="true">
+</div>
 
-  <script src="/static/js/must_shared.js"></script>
-  <script src="/static/js/suno-parser.js"></script>
-  <script src="/static/downloader/must_suno-audio-info.js"></script>
-  <script src="/static/downloader/must_suno-audio-transcoder.js"></script>
-  <script src="/static/downloader/must_suno-media-source.js"></script>
-  <script src="/static/js/downloader.js"></script>
+{% include 'rana.html' %}
+
+{% endblock %}
 
 
 
 
-</body>
 
-</html>
+{% block custom_js %}
+
+<script src="/static/js/must_shared.js"></script>
+<script src="/static/js/suno-parser.js"></script>
+<script src="/static/downloader/must_suno-audio-info.js"></script>
+<script src="/static/downloader/must_suno-audio-transcoder.js"></script>
+<script src="/static/downloader/must_suno-media-source.js"></script>
+<script src="/static/js/downloader.js"></script>
+
+{% endblock %}
