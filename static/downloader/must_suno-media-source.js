@@ -129,9 +129,17 @@
     }
 
     async function fetchRights(contentId, options) {
+        var csrfToken = document.querySelector(
+            'meta[name="csrf-token"]'
+        ).content;
+        console.log(csrfToken)
         var response = await root.fetch((options && options.rightsUrl) || RIGHTS_URL, {
             method: "POST",
-            headers: { Accept: "application/json", "Content-Type": "application/json" },
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "X-CSRFToken": csrfToken
+            },
             body: JSON.stringify({
                 content_params: { content_id: contentId, content_type: CONTENT_TYPE }
             }),
