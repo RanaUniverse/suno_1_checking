@@ -2,6 +2,8 @@
  * Resolve the saved appearance before the page is painted.
  * Keep this file tiny and load it from <head> without defer.
  */
+// Currently i will not use this, later if i will use bs5 i will use this
+
 (function () {
     var STORAGE_KEY = "usesuno-theme";
     var preference = "system";

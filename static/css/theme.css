@@ -74,89 +74,10 @@ body::after {
     background: var(--page-vignette);
 }
 
-.site-nav.is-scrolled {
-    background: var(--nav-solid);
-}
 
-@media (max-width: 1150px) {
-    .nav-links {
-        background: var(--nav-mobile);
-    }
-}
-
-/* —— Appearance control —— */
-.theme-control {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    margin-left: 4px;
-}
-
-.theme-control__trigger {
-    display: inline-grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    background: var(--card-bg);
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-}
-
-.theme-control__trigger:hover,
-.theme-control__trigger[aria-expanded="true"] {
-    color: var(--heading);
-    border-color: rgba(var(--overlay-rgb), 0.22);
-    background: var(--control-hover);
-}
-
-.theme-control__trigger:active {
-    transform: translateY(1px);
-}
-
-.theme-control__trigger:focus-visible,
 .theme-choice:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
-}
-
-.theme-control__glyph {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    overflow: hidden;
-    border: 1.5px solid currentColor;
-    border-radius: 50%;
-}
-
-.theme-control__glyph::after {
-    content: "";
-    position: absolute;
-    inset: 2px 2px 2px 50%;
-    border-radius: 0 999px 999px 0;
-    background: currentColor;
-}
-
-.theme-menu {
-    position: absolute;
-    top: calc(100% + 9px);
-    right: 0;
-    z-index: 240;
-    display: grid;
-    width: 170px;
-    padding: 6px;
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    background: var(--control-bg);
-    box-shadow: var(--soft-shadow);
-    backdrop-filter: var(--glass-blur);
-}
-
-.theme-menu[hidden] {
-    display: none;
 }
 
 .theme-choice {
@@ -207,36 +128,6 @@ body::after {
     opacity: 1;
 }
 
-@media (max-width: 900px) {
-    .theme-control {
-        justify-content: flex-end;
-        margin: 8px 0 0;
-        padding: 10px 12px 0;
-        border-top: 1px solid var(--card-border);
-    }
-
-    .theme-control__trigger {
-        width: 100%;
-        grid-template-columns: 18px 1fr;
-        justify-items: start;
-        gap: 10px;
-        padding: 0 12px;
-    }
-
-    .theme-control__trigger::after {
-        content: attr(data-label);
-        font-size: 0.82rem;
-        font-weight: 600;
-    }
-
-    .theme-menu {
-        top: calc(100% + 6px);
-        left: 12px;
-        right: 12px;
-        width: auto;
-    }
-}
-
 /* —— Light surfaces —— */
 html[data-theme="light"] :where(h1, h2, h3, h4, h5, h6) {
     color: var(--heading) !important;
@@ -250,19 +141,6 @@ html[data-theme="light"] main summary {
     color: var(--heading) !important;
 }
 
-html[data-theme="light"] :where(.logo, .logo:hover, a:hover) {
-    color: var(--heading);
-}
-
-html[data-theme="light"] .nav-toggle-bar {
-    background: var(--heading);
-}
-
-html[data-theme="light"] .nav-links a:hover,
-html[data-theme="light"] .nav-links a.active {
-    color: var(--heading);
-    background: rgba(var(--overlay-rgb), 0.055);
-}
 
 html[data-theme="light"] .hero::before {
     background:
@@ -734,7 +612,6 @@ html[data-theme="light"] ::selection {
 
 @media (prefers-reduced-motion: reduce) {
 
-    .theme-control__trigger,
     .theme-choice {
         transition: none;
     }
