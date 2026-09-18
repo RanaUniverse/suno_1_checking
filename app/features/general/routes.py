@@ -77,12 +77,12 @@ def playlist():
 @login_required
 def dashboard():
     # Mapping real data from your usermodel columns + demo stats for stars/songs
-    user_data = {
-        "first_name": getattr(current_user, "first_name", "Rana"),
-        "last_name": getattr(current_user, "last_name", "Universe"),
-        "email": getattr(current_user, "email", "rana@example.com"),
-        "last_login_time": getattr(current_user, "last_login_time", "Today, 4:15 PM"),
-        "is_verified": getattr(current_user, "is_verified", True),
+    domain_user = current_user.domain_user
+    user_data = {  # type: ignore #TODO later i will add a class to represent data
+        "full_name": getattr(domain_user, "full_name", "R Universe"),
+        "email": getattr(domain_user, "email", "rana@example.com"),
+        "last_login_time": getattr(domain_user, "last_login_time", "Today, 4:15 PM"),
+        "is_verified": getattr(domain_user, "is_verified", True),
         "profile_pic": "https://avatars.githubusercontent.com/u/142967497?v=4",
         "total_stars": 150,
         "songs_downloaded": [
