@@ -74,43 +74,46 @@ def playlist():
 
 
 @general_bp.route("/dashboard")
-@login_required
 def dashboard():
     # Mapping real data from your usermodel columns + demo stats for stars/songs
-    domain_user = current_user.domain_user
-    user_data = {  # type: ignore #TODO later i will add a class to represent data
-        "full_name": getattr(domain_user, "full_name", "R Universe"),
-        "email": getattr(domain_user, "email", "rana@example.com"),
-        "last_login_time": getattr(domain_user, "last_login_time", "Today, 4:15 PM"),
-        "is_verified": getattr(domain_user, "is_verified", True),
-        "profile_pic": "https://avatars.githubusercontent.com/u/142967497?v=4",
-        "total_stars": 150,
-        "songs_downloaded": [
-            {
-                "title": "Cyberpunk Sunset vibe",
-                "url": "https://suno.com/s/sample-track-1",
-                "date": "2026-06-12",
-            },
-            {
-                "title": "Lo-Fi Linux Coding",
-                "url": "https://suno.com/s/sample-track-2",
-                "date": "2026-06-10",
-            },
-            {
-                "title": "Python Developer Anthem",
-                "url": "https://suno.com/s/sample-track-3",
-                "date": "2026-06-08",
-            },
-            {
-                "title": "Bootstrap 5 Fast Beats",
-                "url": "https://suno.com/s/sample-track-4",
-                "date": "2026-06-05",
-            },
-            {
-                "title": "Midnight Debugging",
-                "url": "https://suno.com/s/sample-track-5",
-                "date": "2026-06-01",
-            },
-        ],
-    }
-    return render_template("dashboard.html", user=user_data)
+    print(current_user)
+    if current_user.is_authenticated:
+        domain_user = current_user.domain_user
+        user_data = {  # type: ignore #TODO later i will add a class to represent data
+            "full_name": getattr(domain_user, "full_name", "R Universe"),
+            "email": getattr(domain_user, "email", "rana@example.com"),
+            "last_login_time": getattr(domain_user, "last_login_time", "Today, 4:15 PM"),
+            "is_verified": getattr(domain_user, "is_verified", True),
+            "profile_pic": "https://avatars.githubusercontent.com/u/142967497?v=4",
+            "total_stars": 150,
+            "songs_downloaded": [
+                {
+                    "title": "Cyberpunk Sunset vibe",
+                    "url": "https://suno.com/s/sample-track-1",
+                    "date": "2026-06-12",
+                },
+                {
+                    "title": "Lo-Fi Linux Coding",
+                    "url": "https://suno.com/s/sample-track-2",
+                    "date": "2026-06-10",
+                },
+                {
+                    "title": "Python Developer Anthem",
+                    "url": "https://suno.com/s/sample-track-3",
+                    "date": "2026-06-08",
+                },
+                {
+                    "title": "Bootstrap 5 Fast Beats",
+                    "url": "https://suno.com/s/sample-track-4",
+                    "date": "2026-06-05",
+                },
+                {
+                    "title": "Midnight Debugging",
+                    "url": "https://suno.com/s/sample-track-5",
+                    "date": "2026-06-01",
+                },
+            ],
+        }
+        return render_template("dashboard.html", user=user_data)
+    
+    return render_template("dashboard_locked.html")

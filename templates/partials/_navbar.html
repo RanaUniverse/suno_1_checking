@@ -23,14 +23,14 @@ My navbar will be here
                         <a class="nav-link active" href="/">Home</a>
                     </li>
 
-
-                    {% if current_user.is_authenticated %}
-
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">
                             Dashboard
                         </a>
                     </li>
+
+                    {% if current_user.is_authenticated %}
+
 
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">
