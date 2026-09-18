@@ -46,6 +46,8 @@ for now the identity are going from here
 
     {% include 'partials/_assets_css.html' %}
 
+
+    <link rel="stylesheet" href="/static/css/shared.css">
     {% block page_css %}
     {% endblock %}
 
@@ -56,9 +58,7 @@ for now the identity are going from here
 </head>
 
 <body>
-    <header>
-        {%- include 'partials/_navbar.html' -%}
-    </header>
+    {%- include 'partials/_navbar.html' -%}
 
     {%- include 'partials/_flash_messages.html' -%}
 

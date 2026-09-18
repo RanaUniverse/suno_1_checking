@@ -160,14 +160,9 @@ select {
 
 }
 
-main {
-    flex: 1;
-    margin-top: calc(-1 * var(--nav-h));
-    padding-top: var(--nav-h);
-    position: relative;
-    z-index: 0;
-}
 
+
+/* 
 .container {
     max-width: var(--max);
     margin: 0 auto;
@@ -180,30 +175,9 @@ main {
 
 .container--article {
     max-width: 720px;
-}
+} */
 
-/* Legacy tool shells that predate the shared tool UI. */
-body.ps-page .ps-shell,
-body.pl-page .pl-shell {
-    width: 100%;
-    max-width: none;
-}
 
-/* Legacy tool pages: balance intro copy and help content on the wider rail. */
-body.ps-page .ps-stage .sub,
-body.pl-page .dl-stage .sub {
-    max-width: 64ch;
-}
-
-body.ps-page .ps-help p {
-    width: 100%;
-    max-width: none;
-}
-
-body.pl-page .dl-help p {
-    width: 100%;
-    max-width: none;
-}
 
 /* Supporting copy for utility pages. Keep it inside the existing help surface
    so the working tool remains the first and clearest part of each page. */
@@ -286,18 +260,7 @@ body.pl-page .dl-help p {
     }
 }
 
-body.ps-page .ps-form textarea,
-body.pl-page .dl-form textarea {
-    min-height: 132px;
-}
 
-@media (max-width: 760px) {
-
-    body.ps-page .ps-form textarea,
-    body.pl-page .dl-form textarea {
-        min-height: 120px;
-    }
-}
 
 .tools-back {
     margin: 0 0 18px;
@@ -1106,10 +1069,7 @@ a.card-link {
  * and individual tool surfaces use their full parent width. The tools hub and
  * legacy parser/downloader-family pages retain the centered 800px treatment.
  */
-body.tools-page .faq-section,
-body.pl-page .faq-section,
-body.ps-page .faq-section,
-body.dl-page .faq-section {
+body.tools-page .faq-section {
     width: auto;
     max-width: 800px;
     margin: 48px auto 0;

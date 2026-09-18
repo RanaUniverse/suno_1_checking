@@ -1,20 +1,5 @@
-.dl-page main {
-    padding-bottom: 64px;
-    position: relative;
-}
+/* downloader.css */
 
-.dl-page main::before {
-    content: "";
-    position: absolute;
-    top: -80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(760px, 92vw);
-    height: 460px;
-    background: radial-gradient(closest-side, rgba(var(--overlay-rgb), 0.05), transparent 72%);
-    pointer-events: none;
-    z-index: 0;
-}
 
 .dl-shell {
     position: relative;
@@ -40,13 +25,6 @@
 }
 
 @media (max-width: 560px) {
-    .dl-page .container {
-        padding-top: 24px;
-    }
-
-    .dl-page .tools-back {
-        margin-bottom: 12px;
-    }
 
     .dl-stage {
         padding-top: 24px;
