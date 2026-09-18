@@ -6,6 +6,7 @@ This will my running point of my app
 
 from flask_di import DIFlask
 
+from app.config import settings
 
 from app.shared.extensions import login_manager, csrf
 from app.features.identity.presentation.routes import auth_bp
@@ -40,7 +41,7 @@ def create_app() -> DIFlask:
 if __name__ == "__main__":
     app = create_app()
     app.run(
-        host="0.0.0.0",
-        port=9999,
-        debug=True,
+        host=settings.app.host,
+        port=settings.app.port,
+        debug=settings.app.debug,
     )
