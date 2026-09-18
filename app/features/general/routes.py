@@ -6,6 +6,10 @@ Normal related main parts of my logics will be here
 
 from flask import Blueprint, render_template, request, jsonify
 
+from flask_login import (  # type: ignore
+    login_required,  # type: ignore
+    current_user,
+)
 
 import requests
 
@@ -67,3 +71,46 @@ def get_rights():
 @general_bp.get("/playlist/")
 def playlist():
     return render_template("rana_playlist.html")
+
+
+@general_bp.route("/dashboard")
+@login_required
+def dashboard():
+    # Mapping real data from your usermodel columns + demo stats for stars/songs
+    user_data = {
+        "first_name": getattr(current_user, "first_name", "Rana"),
+        "last_name": getattr(current_user, "last_name", "Universe"),
+        "email": getattr(current_user, "email", "rana@example.com"),
+        "last_login_time": getattr(current_user, "last_login_time", "Today, 4:15 PM"),
+        "is_verified": getattr(current_user, "is_verified", True),
+        "profile_pic": "https://avatars.githubusercontent.com/u/142967497?v=4",
+        "total_stars": 150,
+        "songs_downloaded": [
+            {
+                "title": "Cyberpunk Sunset vibe",
+                "url": "https://suno.com/s/sample-track-1",
+                "date": "2026-06-12",
+            },
+            {
+                "title": "Lo-Fi Linux Coding",
+                "url": "https://suno.com/s/sample-track-2",
+                "date": "2026-06-10",
+            },
+            {
+                "title": "Python Developer Anthem",
+                "url": "https://suno.com/s/sample-track-3",
+                "date": "2026-06-08",
+            },
+            {
+                "title": "Bootstrap 5 Fast Beats",
+                "url": "https://suno.com/s/sample-track-4",
+                "date": "2026-06-05",
+            },
+            {
+                "title": "Midnight Debugging",
+                "url": "https://suno.com/s/sample-track-5",
+                "date": "2026-06-01",
+            },
+        ],
+    }
+    return render_template("dashboard.html", user=user_data)
