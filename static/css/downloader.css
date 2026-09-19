@@ -1173,80 +1173,17 @@ html[data-theme="light"] .dl-toast.is-error {
     flex-shrink: 0;
 }
 
-/* === Help / FAQ === */
-.dl-help {
-    margin-top: 40px;
-    padding: 24px 26px;
-    background: var(--card-bg);
-    border: 10px solid var(--card-border);
-    border-radius: 16px;
+
+
+.dl-help-arrow {
+    transition: transform 0.2s ease;
 }
 
-.dl-help h2 {
-    margin: 0 0 8px;
-    font-size: 1.05rem;
-    letter-spacing: -0.02em;
+button[aria-expanded="true"] .dl-help-arrow {
+    transform: rotate(180deg);
 }
 
-.dl-help h2:not(:first-child) {
-    margin-top: 22px;
-}
 
-.dl-help p {
-    margin: 0 0 6px;
-    font-size: 0.88rem;
-    line-height: 1.65;
-    color: var(--text-muted);
-    max-width: none;
-}
-
-.dl-help .dl-cross-link {
-    display: block;
-    margin: 12px 0 4px;
-    padding: 10px 16px;
-    border: 1px solid rgba(255, 168, 77, 0.45);
-    border-radius: 12px;
-    background: rgba(255, 168, 77, 0.06);
-    color: var(--text-main);
-    font-size: 0.86rem;
-    font-weight: 600;
-    max-width: none;
-}
-
-.dl-help .dl-cross-link a {
-    color: var(--warning-text);
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: color 0.15s ease;
-}
-
-.dl-help .dl-cross-link a:hover {
-    color: var(--warning-text);
-    text-decoration: underline;
-}
-
-.dl-help .dl-policy-link {
-    display: block;
-    margin: 12px 0 4px;
-    padding: 10px 16px;
-    border: 1px solid rgba(255, 168, 77, 0.28);
-    border-radius: 12px;
-    background: rgba(255, 168, 77, 0.045);
-    color: var(--text-muted);
-    font-size: 0.86rem;
-    max-width: none;
-}
-
-.dl-help .dl-policy-link a {
-    color: var(--warning-text);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.dl-help .dl-policy-link a:hover {
-    text-decoration: underline;
-}
 
 .dl-ad {
     margin: 32px 0;
@@ -1295,49 +1232,8 @@ html[data-theme="light"] .dl-ad {
     min-height: 110px;
 }
 
-.dl-cross-link-top {
-    display: none;
-    margin: 12px auto 0;
-    max-width: 44ch;
-    color: var(--text-muted);
-    font-size: 0.82rem;
-    line-height: 1.55;
-    text-align: center;
-}
-
-.dl-cross-link-top__links {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px 14px;
-}
-
-.dl-cross-link-top a {
-    color: var(--warning-text);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.dl-cross-link-top a:hover {
-    text-decoration: underline;
-}
-
 @media (max-width: 560px) {
-    .dl-cross-link-top {
-        display: grid;
-        gap: 4px;
-        max-width: none;
-        font-size: 0.8rem;
-    }
 
-    .dl-cross-link-top__links {
-        display: grid;
-        gap: 3px;
-    }
-
-    .dl-help .dl-cross-link {
-        display: none;
-    }
 
     @media (max-width: 600px) {
         .dl-ad {
