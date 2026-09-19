@@ -45,7 +45,7 @@ From Below is my main logic in my code
     {{ title }}
     <i class="bi bi-chevron-down dl-help-arrow" aria-hidden="true"></i>
 </button>
-<div class="collapse mt-2" id="{{ target_id }}">
+<div class="collapse mt-2 p-3" id="{{ target_id }}">
     <div class="bg-body-tertiary border rounded-4 p-4">
         <p class="mb-0 small text-body-secondary">
             {{ content | safe }}
@@ -56,14 +56,15 @@ From Below is my main logic in my code
 
 
 
-<section class="mt-4">
+<section class="mt-4 border rounded-4">
 
     <!-- Section 1: How To Use This? -->
     {{ one_faq(
     'howToUse',
     '🤔 How To Use This',
     'Want to save your favorite AI tracks quickly and effortlessly? ⚡ Download individual songs in a flash, or if you
-    have a whole collection to grab, use our <a href="/tools/batch/" class="fw-semibold text-decoration-none text-primary">batch
+    have a whole collection to grab, use our <a href="/tools/batch/"
+        class="fw-semibold text-decoration-none text-primary">batch
         downloader 📦</a> for multiple links at once, or explore entire collections with the <a href="/playlist/"
         class="fw-semibold text-decoration-none text-primary">Suno playlist downloader 🎶</a>.'
     ) }}
