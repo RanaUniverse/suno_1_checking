@@ -1,75 +1,94 @@
-<div class="rana-contact-card">
+{#
+templates/rana.html
 
-    <div class="rana-contact-content">
-        <div class="rana-contact-title">
-            <span class="rana-contact-icon">👋</span>
-            <div>
-                <strong>Connect with me</strong>
-                <!-- <small>Rana49.online</small> -->
-                <a href="https://rana49.online" target="_blank" rel="noopener noreferrer">
-                    Rana49.online
-                </a>
+This is some demo structer i want to shows to the user
+#}
 
 
-            </div>
-        </div>
+<div class="card bg-body-tertiary border rounded-5 shadow-sm p-4 my-4 text-center m-0 m-lg-5 ">
 
-        <div class="rana-contact-items">
-
-            <a href="mailto:RanaUniverse321@gmail.com" class="rana-contact-item">
-                <span class="rana-item-icon">📧</span>
-                <span>
-                    <small>Email</small>
-                    <strong>RanaUniverse321@gmail.com</strong>
-                </span>
-            </a>
-
-            <div class="rana-contact-item">
-                <span class="rana-item-icon">💳</span>
-                <span>
-                    <small>UPI ID</small>
-                    <strong>RanaUniverse@upi</strong>
-                </span>
-            </div>
-
-            <a href="tel:+917044394156" class="rana-contact-item">
-                <span class="rana-item-icon">📱</span>
-                <span>
-                    <small>Phone</small>
-                    <strong>+91 7044394156</strong>
-                </span>
-            </a>
-
-            <a href="https://t.me/RanaUniverse" target="_blank" rel="noopener" class="rana-contact-item">
-                <span class="rana-item-icon">✈️</span>
-                <span>
-                    <small>Telegram</small>
-                    <strong>@RanaUniverse</strong>
-                </span>
-            </a>
-
-            <a href="https://wa.me/917044394156" target="_blank" rel="noopener" class="rana-contact-item">
-                <span class="rana-item-icon">💬</span>
-                <span>
-                    <small>WhatsApp</small>
-                    <strong>Chat with me</strong>
-                </span>
-            </a>
-
-        </div>
-
-        <p class="rana-contact-footer">
-            Feel free to reach out anytime. I'd love to hear from you.
-        </p>
+    <!-- Header Title -->
+    <div class="mb-4">
+        <span class="fs-1">👋</span>
+        <h4 class="fw-bold mt-2 mb-1">Connect with me</h4>
+        <a href="https://rana49.online" target="_blank" rel="noopener noreferrer"
+            class="text-decoration-none fw-semibold text-primary">
+            Rana49.online
+        </a>
     </div>
 
-    <!-- QR Code -->
-    <div class="rana-qr-section">
-        <div class="rana-qr-box">
-            <img src="/static/image/qr_rana_universe.png" alt="Rana contact QR code"
+    <!-- QR Code Section (Fixed width ~100px) -->
+    <div class="mb-4">
+        <div class="bg-body p-2 border rounded-3 d-inline-block shadow-sm">
+            <img src="/static/image/qr_rana_universe.png" alt="Rana contact QR code" class="img-fluid rounded"
+                style="width: 100px; height: auto;"
                 onerror="this.onerror=null; this.src='https://te.legra.ph/file/43d6e750e7b036ddded26.png';">
         </div>
-        <span>Scan to connect</span>
+        <span class="d-block small text-body-secondary mt-2 fw-semibold">
+            Scan to connect / UPI Pay
+        </span>
+        <span class="d-block small text-body-secondary mt-2 fw-semibold">
+            Send Money To Activate Any Plan
+        </span>
     </div>
+
+    <!-- Contact List Stacked Below -->
+    <div class="d-flex flex-column gap-2 mx-auto" style="max-width: 450px;">
+
+        <!-- UPI ID -->
+        <a href="https://razorpay.me/@RanaUniverse" target="_blank" rel="noopener"
+            class="d-flex align-items-center gap-3 p-3 rounded-3 bg-body border text-decoration-none text-body shadow-sm">
+            <span class="fs-4">💳</span>
+            <div class="text-start">
+                <small class="d-block text-body-secondary">UPI ID</small>
+                <strong class="small">RanaUniverse@upi</strong>
+            </div>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/RanaUniverse" target="_blank" rel="noopener"
+            class="d-flex align-items-center gap-3 p-3 rounded-3 bg-body border text-decoration-none text-body shadow-sm">
+            <span class="fs-4">✈️</span>
+            <div class="text-start">
+                <small class="d-block text-body-secondary">Telegram</small>
+                <strong class="small">@RanaUniverse</strong>
+            </div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:RanaUniverse321@gmail.com"
+            class="d-flex align-items-center gap-3 p-3 rounded-3 bg-body border text-decoration-none text-body shadow-sm">
+            <span class="fs-4">📧</span>
+            <div class="text-start">
+                <small class="d-block text-body-secondary">Email</small>
+                <strong class="small">RanaUniverse321@gmail.com</strong>
+            </div>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+917044394156"
+            class="d-flex align-items-center gap-3 p-3 rounded-3 bg-body border text-decoration-none text-body shadow-sm">
+            <span class="fs-4">📱</span>
+            <div class="text-start">
+                <small class="d-block text-body-secondary">Phone</small>
+                <strong class="small">+91 7044394156</strong>
+            </div>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/917044394156" target="_blank" rel="noopener"
+            class="d-flex align-items-center gap-3 p-3 rounded-3 bg-body border text-decoration-none text-body shadow-sm">
+            <span class="fs-4">💬</span>
+            <div class="text-start">
+                <small class="d-block text-body-secondary">WhatsApp</small>
+                <strong class="small">Chat with me</strong>
+            </div>
+        </a>
+
+    </div>
+
+    <p class="text-body-secondary small mt-4 mb-0">
+        Feel free to reach out anytime. I'd love to hear from you! 🤝
+    </p>
 
 </div>
