@@ -130,28 +130,6 @@
     var lyricMvModalClose = document.getElementById("dl-lyric-mv-modal-close");
     var stayLyricMvBtn = document.getElementById("dl-stay-lyric-mv");
     var lastLyricMvModalFocus = null;
-    var policyNotice = document.getElementById("dl-policy-notice");
-    var policyNoticeDismiss = document.getElementById("dl-policy-notice-dismiss");
-    var POLICY_NOTICE_KEY = "usesuno:downloader:suno-policy-september-3-2026:v1";
-
-    try {
-        if (window.localStorage.getItem(POLICY_NOTICE_KEY) === "dismissed" && policyNotice) {
-            policyNotice.classList.add("dl-hidden");
-        }
-    } catch (e) {
-        // Keep the notice visible when storage is unavailable or blocked.
-    }
-
-    if (policyNoticeDismiss) {
-        policyNoticeDismiss.addEventListener("click", function () {
-            if (policyNotice) policyNotice.classList.add("dl-hidden");
-            try {
-                window.localStorage.setItem(POLICY_NOTICE_KEY, "dismissed");
-            } catch (e) {
-                // Dismissal still works for this page view when storage is unavailable.
-            }
-        });
-    }
 
     /** 加载中封面占位（SVG data URI）：深色底 + 居中镂空「S」+ 描边「书写」动画 */
     var DL_COVER_PLACEHOLDER = (function () {
