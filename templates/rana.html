@@ -19,13 +19,26 @@ This is some demo structer i want to shows to the user
 
     <!-- QR Code Section (Fixed width ~100px) -->
     <div class="mb-4">
-        <div class="bg-body p-2 border rounded-3 d-inline-block shadow-sm">
+        <!-- <div class="bg-body p-2 border rounded-3 d-inline-block shadow-sm">
             <img src="/static/image/qr_rana_universe.png" alt="Rana contact QR code" class="img-fluid rounded"
                 style="width: 100px; height: auto;"
                 onerror="this.onerror=null; this.src='https://te.legra.ph/file/43d6e750e7b036ddded26.png';">
-        </div>
+        </div> -->
+
+        <a href="/static/image/qr_rana_universe.png" download="Rana-Universe-QR.png"
+            class="d-inline-block text-decoration-none" title="Click to download QR code">
+            <div class="bg-body p-2 border rounded-3 d-inline-block shadow-sm">
+                <img src="/static/image/qr_rana_universe.png" alt="Rana contact QR code" class="img-fluid rounded"
+                    style="width: 100px; height: auto;"
+                    onerror="this.onerror=null; this.src='https://te.legra.ph/file/43d6e750e7b036ddded26.png';">
+            </div>
+        </a>
+
+
+
+
         <span class="d-block small text-body-secondary mt-2 fw-semibold">
-            Scan to connect / UPI Pay
+            Scan or Click to download QR / UPI Pay
         </span>
         <span class="d-block small text-body-secondary mt-2 fw-semibold">
             Send Money To Activate Any Plan
