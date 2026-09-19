@@ -4,31 +4,30 @@ templates/partials/_footer.html
 My footer section will be here
 #}
 
-<footer class="footer bg-dark text-light mt-5 py-4">
-
+<footer class="footer bg-dark text-light mt-5 py-5 border-top border-secondary">
     <div class="container text-center">
 
-        <h5 class="mb-2">Rana Universe</h5>
+        <!-- Brand Title -->
+        <h5 class="mb-2 fw-bold text-warning">🎵 AI Song Downloader 🎵</h5>
 
-        <p class="text-secondary mb-2">
-            Simple, secure, and reliable email service built with Python.
+        <!-- Contextual Description mentioning the 3-star cost -->
+        <p class="text-secondary mb-3 mx-auto" style="max-width: 600px;">
+            The ultimate platform to download your favorite Suno AI tracks, original audio, MP3s, and videos instantly.
+            Enjoy lightning-fast downloads for <strong class="text-light">just 2/3 stars per song</strong>! ⚡
         </p>
 
-        <div class="mb-3">
+        <!-- Navigation Links -->
+        <div class="mb-4">
             <a href="/" class="text-decoration-none text-light mx-2">Home</a>
-            <a href="/send-email" class="text-decoration-none text-light mx-2">
-                Send Email
-            </a>
-            <a href="/about" class="text-decoration-none text-light mx-2">
-                About
-            </a>
-            <a href="/contact" class="text-decoration-none text-light mx-2">
-                Contact
-            </a>
+            <a href="/tools/batch/" class="text-decoration-none text-light mx-2">Batch Downloader</a>
+            <a href="/playlist/" class="text-decoration-none text-light mx-2">Playlist Downloader</a>
+            <a href="/top-up" class="text-decoration-none text-light mx-2">Top-Up Stars</a>
+            <a href="/contact" class="text-decoration-none text-light mx-2">Contact</a>
         </div>
 
-        <small class="text-secondary">
-            &copy; {{ current_year or 2026 }} Rana Universe. All rights reserved.
+        <!-- Copyright -->
+        <small class="text-secondary d-block">
+            &copy; {{ current_year or 2026 }} Rana Universe.
         </small>
 
     </div>
